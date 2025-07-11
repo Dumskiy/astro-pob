@@ -22,6 +22,16 @@ h1 {
   color: var(--blue-secondary);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
 .container {
   margin: 0 1.6rem;
 }

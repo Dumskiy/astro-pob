@@ -1,0 +1,115 @@
+---
+import Logo from "./Logo.astro";
+---
+
+<header class="header">
+  <div class="header__container container">
+    <Logo class="header__logo" area="header"/>
+    <nav class="header__navigation">
+      <ul class="header__navigation-list">
+        <li>
+          <a href="" class="header__navigation-link">О нас</a>
+        </li>
+        <li>
+          <a href="" class="header__navigation-link">Тарифы</a>
+        </li>
+        <li>
+          <a href="" class="header__navigation-link">Услуги</a>
+        </li>
+      </ul>
+    </nav>
+    <button class="header__button button">Оставить заявку</button>
+    <button class="header__button button">Меню</button>
+  </div>
+</header>
+
+<style>
+.header {
+  padding: 1rem 0;
+  border-bottom: 0.01rem solid #E1E1E1;
+}
+
+@media (max-width: 767px) {
+  .header__container {
+    margin: 0 1rem;
+  }
+}
+
+.header__container {
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  .header__container {
+    margin: 0 1rem;
+  }
+}
+
+.header__logo {
+  margin-right: auto;
+}
+
+.header__navigation {
+  margin-right: 2.5rem;
+}
+
+@media (max-width: 1023px) {
+  .header__navigation {
+    display: none;
+  }
+}
+
+.header__navigation-list {
+  display: flex;
+  height: 100%;
+  margin: 0;
+}
+
+.header__navigation-link {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 2.5rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 111%;
+  color: var(--dark-secondary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.header__navigation-link:hover,
+.header__navigation-link:focus {
+  color: var(--dark-primary);
+}
+
+.header__button + .header__button {
+  margin-left: 1rem;
+}
+
+.button {
+  height: 5rem;
+  padding: 1.5rem;
+  color: var(--light-primary);
+  background-color: var(--black);
+  border-radius: 10rem;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 125%;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--blue-primary);
+}
+
+@media (min-width: 1024px) {
+  .button {
+    height: 6rem;
+  }
+}
+</style>
