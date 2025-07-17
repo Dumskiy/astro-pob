@@ -1,0 +1,64 @@
+@use "sass:map";
+@use "sass:string";
+
+/**
+ * Mixins for media query.
+ *
+ * Snippets VS Code:
+ * mqmo — @include mobile-only { ... }
+ * mqt  — @include tablet { ... }
+ * mqtm — @include tablet-max { ... }
+ * mqto — @include tablet-only { ... }
+ * mql  — @include laptop { ... }
+ * mqlm — @include laptop-max { ... }
+ * mqlo — @include laptop-only { ... }
+ * mqd  — @include desktop { ... }
+ */
+
+@mixin mobile-only {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-max {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin laptop-max {
+  @media (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin laptop-only {
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}

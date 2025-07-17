@@ -23,24 +23,16 @@ import Logo from "./Logo.astro";
   </div>
 </header>
 
-<style>
+<style lang="scss">
 .header {
   padding: 1rem 0;
   border-bottom: 0.01rem solid #E1E1E1;
 }
 
-@media (max-width: 767px) {
-  .header__container {
-    margin: 0 1rem;
-  }
-}
-
 .header__container {
   display: flex;
-}
 
-@media (max-width: 767px) {
-  .header__container {
+  @include mobile-only {
     margin: 0 1rem;
   }
 }
@@ -51,10 +43,8 @@ import Logo from "./Logo.astro";
 
 .header__navigation {
   margin-right: 2.5rem;
-}
 
-@media (max-width: 1023px) {
-  .header__navigation {
+  @include laptop-max {
     display: none;
   }
 }
@@ -100,16 +90,14 @@ import Logo from "./Logo.astro";
   line-height: 125%;
   border: none;
   transition: background-color 0.3s;
+
+  @include laptop {
+    height: 6rem;
+  }
 }
 
 .button:hover,
 .button:focus {
   background-color: var(--blue-primary);
-}
-
-@media (min-width: 1024px) {
-  .button {
-    height: 6rem;
-  }
 }
 </style>

@@ -2,8 +2,7 @@
 
 :root {
   /* FONTS */
-  --font-primary: 'Inter';
-  /* --font-primary: 'Inter', Arial, Helvetica, sans-serif; */
+  --font-primary: 'Inter', Arial, Helvetica, sans-serif;
 
   /* COLORS */
   --black: #000000;

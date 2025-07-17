@@ -1,0 +1,74 @@
+{
+  "Media Query Mobile Only": {
+    "prefix": "mqmo",
+    "body": [
+      "@include mobile-only {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query: mobile-only (max-width: 767px)"
+  },
+  "Media Query Tablet": {
+    "prefix": "mqt",
+    "body": [
+      "@include tablet {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query: tablet (min-width: 768px)"
+  },
+  "Media Query Tablet Max": {
+    "prefix": "mqtm",
+    "body": [
+      "@include tablet-max {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query: tablet-max (max-width: 1023px)"
+  },
+  "Media Query Tablet Only": {
+    "prefix": "mqto",
+    "body": [
+      "@include tablet-only {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query: tablet-only (768px–1023px)"
+  },
+  "Media Query Laptop": {
+    "prefix": "mql",
+    "body": [
+      "@include laptop {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query: laptop (min-width: 1024px)"
+  },
+  "Media Query Laptop Max": {
+    "prefix": "mqlm",
+    "body": [
+      "@include laptop-max {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query: laptop-max (max-width: 1439px)"
+  },
+  "Media Query Laptop Only": {
+    "prefix": "mqlo",
+    "body": [
+      "@include laptop-only {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query: laptop only (1024px–1439px)"
+  },
+  "Media Query Desktop": {
+    "prefix": "mqd",
+    "body": [
+      "@include desktop {",
+      "  $0",
+      "}"
+    ],
+    "description": "Media query: desktop (min-width: 1440px)"
+  }
+}

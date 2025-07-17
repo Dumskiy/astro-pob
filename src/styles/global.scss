@@ -34,20 +34,18 @@ h1 {
 
 .container {
   margin: 0 1.6rem;
-}
-@media (min-width: 768px) {
-  .container {
+
+  @include tablet {
     margin: 0 3rem;
   }
-}
-@media (min-width: 1024px) {
-  .container {
+
+  @include laptop {
     max-width: 96.4rem;
     margin: 0 auto;
   }
-}
-@media (min-width: 1440px) {
-  .container {
+
+  @include desktop {
     max-width: 120rem;
+    background: orange;
   }
 }
