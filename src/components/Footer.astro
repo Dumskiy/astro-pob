@@ -1,0 +1,133 @@
+---
+import Logo from "./Logo.astro";
+import Button from "./Button.astro";
+import Social from "./Social.astro";
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__head">
+      <Logo area="footer"/>
+      <p class="footer__text">Занимайтесь бизнесом, а не бухгалтерией — оставьте заявку, <br>а коллеги ответят на вопросы и помогут с подключением</p>
+      <Button class="footer__button-request">Оставить заявку</Button>
+    </div>
+    <div class="footer__main">
+      <Social />
+      <nav class="footer__navigation">
+        <ul class="footer__navigation-list">
+          <li>
+            <a href="" class="footer__navigation-link">Бухгалтерия для ИП</a>
+          </li>
+          <li>
+            <a href="" class="footer__navigation-link">Бухгалтерия для ООО</a>
+          </li>
+          <li>
+            <a href="" class="footer__navigation-link">Бухгалтерия для селлеров</a>
+          </li>
+          <li>
+            <a href="" class="footer__navigation-link">Нулевая отчётность</a>
+          </li>
+          <li>
+            <a href="" class="footer__navigation-link">Новому бизнесу</a>
+          </li>
+          <li>
+            <a href="" class="footer__navigation-link">Партнёрская программа</a>
+          </li>
+          <li>
+            <a href="" class="footer__navigation-link">Оферта</a>
+          </li>
+          <li>
+            <a href="" class="footer__navigation-link">Тарифы</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer__cookie">
+      Мы&nbsp;используем файлы &laquo;cookie&raquo;, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.
+    </p>
+  </div>
+</footer>
+
+<style lang="scss">
+.footer {
+  padding: 4rem 0 1.6rem;
+  border-top: 0.01rem solid #E1E1E1;
+}
+
+.footer__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer__text {
+  margin: 3rem 0 0;
+  font-size: 1.4rem;
+
+  @include mobile-only {
+    br {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    margin: 0 0 0 5.5rem;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  @include laptop {
+    margin: 0 3rem;
+  }
+  
+  @include desktop {
+    margin: 0 6rem;
+    font-size: 1.6rem;
+  }
+}
+
+.footer__button-request {
+  @include tablet-max {
+    width: 100%;
+    margin-top: 4rem;
+  }
+}
+
+.footer__main {
+  margin: 4rem 0;
+  
+  @include laptop {
+    margin: 6rem 0;
+  }
+}
+
+.footer__cookie {
+  margin: 0;
+  padding-top: 2rem;
+  border-top: 0.01rem solid #E1E1E1;
+}
+
+.footer__navigation-list {
+  // display: flex;
+  // height: 100%;
+  margin: 0;
+}
+
+.footer__navigation-link {
+  // display: inline-flex;
+  // align-items: center;
+  // height: 100%;
+  // padding: 0 2.5rem;
+  font-weight: 500;
+  // font-size: 1.8rem;
+  // line-height: 111%;
+  color: var(--dark-secondary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer__navigation-link:hover,
+.footer__navigation-link:focus {
+  color: var(--dark-primary);
+}
+</style>

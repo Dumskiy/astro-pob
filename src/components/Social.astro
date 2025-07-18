@@ -1,0 +1,38 @@
+---
+const { class: className = '', ...rest } = Astro.props;
+---
+
+<ul class="social">
+  <li>
+    <a class="social__link" href="" target="_blank">
+      <img src="./icons/icon-telegram.svg" width="50" height="50" alt="" />
+      <span class="sr-only">Телеграм</span>
+    </a>
+  </li>
+  <li>
+    <a class="social__link" href="" target="_blank">
+      <img src="./icons/icon-vkontakte.svg" width="50" height="50" alt="" />
+      <span class="sr-only">ВКонтакте</span>
+    </a>
+  </li>
+  <li>
+    <a class="social__link" href="" target="_blank">
+      <img src="./icons/icon-youtube.svg" width="50" height="50" alt="" />
+      <span class="sr-only">Ютуб</span>
+    </a>
+  </li>
+</ul>
+
+<style lang="scss">
+.social {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  column-gap: 1.6rem;
+
+  // @include laptop {
+  //   height: 6rem;
+  // }
+}
+</style>
