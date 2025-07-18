@@ -1,9 +1,14 @@
 ---
-// import Logo from "./Logo.astro";
-const { class: className = '', ...rest } = Astro.props;
+const { class: className = '', color = '', ...rest } = Astro.props;
+
+const allowedColors = ['white'];
+
+if (color && !allowedColors.includes(color)) {
+  throw new Error(`Неверный цвет кнопки: "${color}". Допустимые значения: ${allowedColors.join(', ')}`);
+}
 ---
 
-<button class:list={`button ${className}`} {...rest}>
+<button class:list={`button ${color} ${className}`} {...rest}>
   <slot />
 </button>
 
@@ -11,24 +16,40 @@ const { class: className = '', ...rest } = Astro.props;
 .button {
   height: 5rem;
   padding: 1.5rem;
-  color: var(--light-primary);
-  background-color: var(--black);
-  border-radius: 10rem;
-  cursor: pointer;
   font-family: var(--font-primary);
   font-weight: 700;
   font-size: 1.6rem;
-  line-height: 125%;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--light-primary);
+  background-color: var(--black);
   border: none;
+  border-radius: 10rem;
+  cursor: pointer;
   transition: background-color 0.3s;
 
   @include laptop {
     height: 6rem;
+    padding: 2rem;
   }
 }
 
 .button:hover,
 .button:focus {
   background-color: var(--blue-primary);
+}
+
+.button.white {
+  color: var(--dark-primary);
+  background-color: var(--light-primary);
+
+  @include laptop {
+    font-size: 1.8rem;
+  }
+}
+
+.button.white:hover,
+.button.white:focus {
+  background-color: #FAFAFB;
 }
 </style>
