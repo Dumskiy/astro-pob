@@ -1,5 +1,6 @@
 ---
 import Logo from "./Logo.astro";
+import Button from "./Button.astro";
 ---
 
 <header class="header">
@@ -18,8 +19,8 @@ import Logo from "./Logo.astro";
         </li>
       </ul>
     </nav>
-    <button class="header__button button">Оставить заявку</button>
-    <button class="header__button button">Меню</button>
+    <Button class="header__button-request">Оставить заявку</Button>
+    <Button class="header__button-menu">Меню</Button>
   </div>
 </header>
 
@@ -73,31 +74,13 @@ import Logo from "./Logo.astro";
   color: var(--dark-primary);
 }
 
-.header__button + .header__button {
-  margin-left: 1rem;
-}
-
-.button {
-  height: 5rem;
-  padding: 1.5rem;
-  color: var(--light-primary);
-  background-color: var(--black);
-  border-radius: 10rem;
-  cursor: pointer;
-  font-family: var(--font-primary);
-  font-weight: 700;
-  font-size: 1.6rem;
-  line-height: 125%;
-  border: none;
-  transition: background-color 0.3s;
-
-  @include laptop {
-    height: 6rem;
+.header__button-request {
+  @include mobile-only {
+    display: none;
   }
 }
 
-.button:hover,
-.button:focus {
-  background-color: var(--blue-primary);
+.header__button-menu {
+  margin-left: 1rem;
 }
 </style>
