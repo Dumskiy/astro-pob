@@ -43,7 +43,7 @@ import Social from "./Social.astro";
       </nav>
     </div>
     <p class="footer__cookie">
-      Мы&nbsp;используем файлы &laquo;cookie&raquo;, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.
+      Мы&nbsp;используем файлы <a href="" target="_blank">&laquo;cookie&raquo;</a>, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.
     </p>
   </div>
 </footer>
@@ -52,42 +52,58 @@ import Social from "./Social.astro";
 .footer {
   padding: 4rem 0 1.6rem;
   border-top: 0.01rem solid #E1E1E1;
+
+  @include tablet {
+    padding-bottom: 3rem;
+  }
+
+  @include laptop {
+    padding: 6rem 0;
+  }
 }
 
 .footer__head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  @include tablet {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+
+  @include laptop {
+    grid-template-columns: auto 1fr auto;
+    column-gap: 3rem;
+  }
+
+  @include desktop {
+    column-gap: 6rem;
+  }
 }
 
 .footer__text {
-  margin: 3rem 0 0;
+  margin: 0;
   font-size: 1.4rem;
 
   @include mobile-only {
+    max-width: 43rem;
+    margin-top: 3rem;
+
     br {
       display: none;
     }
   }
 
-  @include tablet {
-    margin: 0 0 0 5.5rem;
-    flex-grow: 1;
-    flex-basis: 0;
+  @include tablet-only {
+    margin-left: auto;
   }
 
-  @include laptop {
-    margin: 0 3rem;
-  }
-  
   @include desktop {
-    margin: 0 6rem;
     font-size: 1.6rem;
   }
 }
 
 .footer__button-request {
   @include tablet-max {
+    grid-column: span 2;
     width: 100%;
     margin-top: 4rem;
   }
@@ -104,23 +120,26 @@ import Social from "./Social.astro";
 .footer__cookie {
   margin: 0;
   padding-top: 2rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 140%;
   border-top: 0.01rem solid #E1E1E1;
+
+  @include laptop {
+    font-size: 1.6rem;
+  }
+
+  a {
+    color: inherit;
+  }
 }
 
 .footer__navigation-list {
-  // display: flex;
-  // height: 100%;
   margin: 0;
 }
 
 .footer__navigation-link {
-  // display: inline-flex;
-  // align-items: center;
-  // height: 100%;
-  // padding: 0 2.5rem;
   font-weight: 500;
-  // font-size: 1.8rem;
-  // line-height: 111%;
   color: var(--dark-secondary);
   text-decoration: none;
   transition: color 0.3s;
