@@ -2,7 +2,7 @@
 const { class: className = '', ...rest } = Astro.props;
 ---
 
-<ul class="social">
+<ul class={`social ${className}`} {...rest}>
   <li>
     <a class="social__link" href="" target="_blank">
       <img src="./icons/icon-telegram.svg" width="50" height="50" alt="" />

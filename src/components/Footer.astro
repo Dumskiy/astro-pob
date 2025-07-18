@@ -12,7 +12,7 @@ import Social from "./Social.astro";
       <Button class="footer__button-request">Оставить заявку</Button>
     </div>
     <div class="footer__main">
-      <Social />
+      <Social class="footer__social" />
       <nav class="footer__navigation">
         <ul class="footer__navigation-list">
           <li>
@@ -41,6 +41,14 @@ import Social from "./Social.astro";
           </li>
         </ul>
       </nav>
+      <article class="footer__banner banner">
+        <div class="wrapper">
+          <h4>Телеграм канал с&nbsp;новостями</h4>
+          <p>Поможем не&nbsp;уснуть от&nbsp;скучных новостей, но&nbsp;остаться в&nbsp;курсе событий</p>
+          <Button color="white">Подписаться</Button>
+        </div>
+        <img src="" alt="">
+      </article>
     </div>
     <p class="footer__cookie">
       Мы&nbsp;используем файлы <a href="" target="_blank">&laquo;cookie&raquo;</a>, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.
@@ -110,27 +118,46 @@ import Social from "./Social.astro";
 }
 
 .footer__main {
+  display: grid;
+  row-gap: 4rem;
   margin: 4rem 0;
-  
+
   @include laptop {
+    row-gap: 6rem;
+    column-gap: 8rem;
     margin: 6rem 0;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+      "social navigation"
+      "banner banner";
+  }
+
+  @include desktop {
+    row-gap: 3rem;
+    column-gap: 11rem;
+    grid-template-columns: 1fr 58.5rem;
+    grid-template-rows: 5rem auto;
+    grid-template-areas: 
+      "social banner"
+      "navigation banner";
   }
 }
 
-.footer__cookie {
-  margin: 0;
-  padding-top: 2rem;
-  font-weight: 500;
-  font-size: 1.4rem;
-  line-height: 140%;
-  border-top: 0.01rem solid #E1E1E1;
-
+.footer__social {
   @include laptop {
-    font-size: 1.6rem;
+    grid-area: social;
   }
+}
 
-  a {
-    color: inherit;
+.footer__banner {
+  @include laptop {
+    grid-area: banner;
+  }
+}
+
+.footer__navigation {
+  @include laptop {
+    grid-area: navigation;
   }
 }
 
@@ -140,13 +167,110 @@ import Social from "./Social.astro";
 
 .footer__navigation-link {
   font-weight: 500;
+  line-height: 1.2;
   color: var(--dark-secondary);
   text-decoration: none;
   transition: color 0.3s;
+
+  @include laptop {
+    font-size: 1.8rem;
+  }
 }
 
 .footer__navigation-link:hover,
 .footer__navigation-link:focus {
   color: var(--dark-primary);
+}
+
+.banner {
+  color: var(--light-primary);
+  background: linear-gradient(92.8deg, #4AA9FF 4.12%, #4AD5FF 96.89%);
+  border-radius: 1.6rem;
+
+  @include tablet {
+    display: flex;
+    border-radius: 2rem;
+  }
+
+  @include laptop {
+    border-radius: 3rem;
+  }
+
+  .wrapper {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.6rem;
+
+    @include tablet {
+      padding: 3rem;
+      padding-right: 0;
+    }
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 3rem;
+    line-height: 1;
+    
+    @include mobile-only {
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+  }
+
+  p {
+    margin: 0;
+
+    @include laptop {
+      font-size: 1.8rem;
+    }
+  }
+
+  button {
+    @include tablet {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 25rem;
+    background-color: rgba(154, 154, 154, 0.41);
+
+    @include tablet {
+      width: 30.8rem;
+      height: 27rem;
+    }
+
+    @include laptop {
+      width: 39.9rem;
+      height: 27rem;
+    }
+
+    @include desktop {
+      width: 30rem;
+      height: 33rem;
+    }
+  }
+}
+
+.footer__cookie {
+  margin: 0;
+  padding-top: 2rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  border-top: 0.01rem solid #E1E1E1;
+
+  @include laptop {
+    font-size: 1.6rem;
+  }
+
+  a {
+    color: inherit;
+  }
 }
 </style>
