@@ -1,0 +1,55 @@
+---
+import Image from './Image.astro';
+
+const {
+  path,
+  sizes,
+  type = "webp",
+  loading,
+  decoding,
+  alt,
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+const screens = Object.keys(sizes).map(Number).sort((a, b) => a - b);
+const baseScreen = screens[0];
+
+const sources = screens.slice(1).reverse().map(screen => ({
+  media: `(min-width: ${screen}px)`,
+  srcset: `${path}-${screen}.${type}, ${path}-${screen}@2x.${type} 2x`,
+  type: `image/${type}`,
+  width: sizes[screen][0],
+  height: sizes[screen][1]
+}));
+
+const imageData = {
+  src: `${path}-${baseScreen}.${type}`,
+  srcset: `${path}-${baseScreen}@2x.${type} 2x`,
+  width: sizes[baseScreen][0],
+  height: sizes[baseScreen][1],
+}
+---
+
+<picture>
+  {sources.map(source => (
+    <source
+      media={source.media}
+      srcset={source.srcset}
+      width={source.width}
+      height={source.height}
+      type={source.type}
+    />
+  ))}
+  <Image
+    class={className}
+    src={imageData.src}
+    srcset={imageData.srcset}
+    width={imageData.width}
+    height={imageData.height}
+    loading={loading}
+    decoding={decoding}
+    alt={alt}
+    {...rest}
+  />
+</picture>

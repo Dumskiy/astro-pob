@@ -2,6 +2,10 @@
 import Logo from "./Logo.astro";
 import Button from "./Button.astro";
 import Social from "./Social.astro";
+import Picture from "./Picture.astro";
+
+import bannerData from "./banner.json";
+const imageData = bannerData.image;
 ---
 
 <footer class="footer">
@@ -37,6 +41,9 @@ import Social from "./Social.astro";
             <a href="" class="footer__navigation-link">Оферта</a>
           </li>
           <li>
+            <a href="" class="footer__navigation-link">О нас</a>
+          </li>
+          <li>
             <a href="" class="footer__navigation-link">Тарифы</a>
           </li>
         </ul>
@@ -47,7 +54,7 @@ import Social from "./Social.astro";
           <p>Поможем не&nbsp;уснуть от&nbsp;скучных новостей, но&nbsp;остаться в&nbsp;курсе событий</p>
           <Button color="white">Подписаться</Button>
         </div>
-        <img src="" alt="">
+        <Picture class="img" path={imageData.path} sizes={imageData.sizes}>
       </article>
     </div>
     <p class="footer__cookie">
@@ -57,6 +64,10 @@ import Social from "./Social.astro";
 </footer>
 
 <style lang="scss">
+// .img {
+//   flex-shrink: 0;
+// }
+
 .footer {
   padding: 4rem 0 1.6rem;
   border-top: 0.01rem solid #E1E1E1;
@@ -137,8 +148,8 @@ import Social from "./Social.astro";
     column-gap: 11rem;
     grid-template-columns: 1fr 58.5rem;
     grid-template-rows: 5rem auto;
-    grid-template-areas: 
-      "social banner"
+    grid-template-areas:
+      "social     banner"
       "navigation banner";
   }
 }
@@ -234,27 +245,27 @@ import Social from "./Social.astro";
     }
   }
 
-  img {
-    display: block;
-    width: 100%;
-    height: 25rem;
-    background-color: rgba(154, 154, 154, 0.41);
+  // img {
+  //   display: block;
+  //   width: 100%;
+  //   height: 25rem;
+  //   background-color: rgba(154, 154, 154, 0.41);
 
-    @include tablet {
-      width: 30.8rem;
-      height: 27rem;
-    }
+  //   @include tablet {
+  //     width: 30.8rem;
+  //     height: 27rem;
+  //   }
 
-    @include laptop {
-      width: 39.9rem;
-      height: 27rem;
-    }
+  //   @include laptop {
+  //     width: 39.9rem;
+  //     height: 27rem;
+  //   }
 
-    @include desktop {
-      width: 30rem;
-      height: 33rem;
-    }
-  }
+  //   @include desktop {
+  //     width: 30rem;
+  //     height: 33rem;
+  //   }
+  // }
 }
 
 .footer__cookie {
