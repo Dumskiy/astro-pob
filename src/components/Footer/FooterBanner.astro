@@ -1,0 +1,74 @@
+---
+import Button from "../Button.astro";
+import Picture from "../Picture.astro";
+
+import data from "./footer-data.json";
+const imageData = data.banner.image;
+
+const { class: className = '', ...rest } = Astro.props;
+---
+
+
+<article class={`banner ${className}`} {...rest}>
+  <div class="banner__content">
+    <h4 class="banner__title">Телеграм канал с&nbsp;новостями</h4>
+    <p class="banner__descr">Поможем не&nbsp;уснуть от&nbsp;скучных новостей, но&nbsp;остаться в&nbsp;курсе событий</p>
+    <Button class="banner__button" color="white">Подписаться</Button>
+  </div>
+  <Picture path={imageData.path} sizes={imageData.sizes}>
+</article>
+
+<style lang="scss">
+.banner {
+  color: var(--light-primary);
+  background: linear-gradient(92.8deg, #4AA9FF 4.12%, #4AD5FF 96.89%);
+  border-radius: 1.6rem;
+
+  @include tablet {
+    display: flex;
+    border-radius: 2rem;
+  }
+
+  @include laptop {
+    border-radius: 3rem;
+  }
+
+  &__content {
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.6rem;
+
+    @include tablet {
+      padding: 3rem;
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 3rem;
+    line-height: 1;
+    
+    @include mobile-only {
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+  }
+
+  &__descr {
+    margin: 0;
+
+    @include laptop {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__button {
+    @include tablet {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+  }
+}
+</style>

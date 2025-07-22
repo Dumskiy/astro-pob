@@ -1,0 +1,148 @@
+---
+import Logo from "../Logo.astro";
+import Button from "../Button.astro";
+import Social from "../Social.astro";
+import FooterBanner from "./FooterBanner.astro";
+import FooterNavigation from "./FooterNavigation.astro";
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__head">
+      <Logo area="footer"/>
+      <p class="footer__text">Занимайтесь бизнесом, а не бухгалтерией — оставьте заявку, <br>а коллеги ответят на вопросы и помогут с подключением</p>
+      <Button class="footer__button-request">Оставить заявку</Button>
+    </div>
+    <div class="footer__main">
+      <Social class="footer__social" />
+      <FooterNavigation class="footer__navigation" />
+      <FooterBanner class="footer__banner" />
+    </div>
+    <p class="footer__cookie">
+      Мы&nbsp;используем файлы <a href="" target="_blank">&laquo;cookie&raquo;</a>, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.
+    </p>
+  </div>
+</footer>
+
+<style lang="scss">
+.footer {
+  padding: 4rem 0 1.6rem;
+  border-top: 0.01rem solid #E1E1E1;
+
+  @include tablet {
+    padding-bottom: 3rem;
+  }
+
+  @include laptop {
+    padding: 6rem 0;
+  }
+}
+
+.footer__head {
+  @include tablet {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+
+  @include laptop {
+    grid-template-columns: auto 1fr auto;
+    column-gap: 3rem;
+  }
+
+  @include desktop {
+    column-gap: 6rem;
+  }
+}
+
+.footer__text {
+  margin: 0;
+  font-size: 1.4rem;
+
+  @include mobile-only {
+    max-width: 43rem;
+    margin-top: 3rem;
+
+    br {
+      display: none;
+    }
+  }
+
+  @include tablet-only {
+    margin-left: auto;
+  }
+
+  @include desktop {
+    font-size: 1.6rem;
+  }
+}
+
+.footer__button-request {
+  @include tablet-max {
+    grid-column: span 2;
+    width: 100%;
+    margin-top: 4rem;
+  }
+}
+
+.footer__main {
+  display: grid;
+  row-gap: 4rem;
+  margin: 4rem 0;
+
+  @include laptop {
+    row-gap: 6rem;
+    column-gap: 8rem;
+    margin: 6rem 0;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+      "social navigation"
+      "banner banner";
+  }
+
+  @include desktop {
+    row-gap: 3rem;
+    column-gap: 11rem;
+    grid-template-columns: 1fr 58.5rem;
+    grid-template-rows: 5rem auto;
+    grid-template-areas:
+      "social     banner"
+      "navigation banner";
+  }
+}
+
+.footer__social {
+  @include laptop {
+    grid-area: social;
+  }
+}
+
+.footer__banner {
+  @include laptop {
+    grid-area: banner;
+  }
+}
+
+.footer__navigation {
+  @include laptop {
+    grid-area: navigation;
+  }
+}
+
+.footer__cookie {
+  margin: 0;
+  padding-top: 2rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  border-top: 0.01rem solid #E1E1E1;
+
+  @include laptop {
+    font-size: 1.6rem;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+</style>

@@ -1,0 +1,51 @@
+---
+import data from "./footer-data.json";
+const links = data.navigation;
+
+const { class: className = '', ...rest } = Astro.props;
+---
+
+<nav class={`footer-navigation ${className}`} {...rest}>
+  <ul class="footer-navigation__list">
+    {links.map((link) => (
+      <li class="footer-navigation__item">
+        <a href={link.href} class="footer-navigation__link">{link.text}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style lang="scss">
+.footer-navigation__list {
+  margin: 0;
+
+  @include tablet {
+    column-count: 2;
+  }
+
+  @include desktop {
+    column-gap: 5rem;
+  }
+}
+
+.footer-navigation__item {
+  margin-bottom: 1.1rem;
+}
+
+.footer-navigation__link {
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--dark-secondary);
+  text-decoration: none;
+  transition: color 0.3s;
+
+  @include laptop {
+    font-size: 1.8rem;
+  }
+}
+
+.footer-navigation__link:hover,
+.footer-navigation__link:focus {
+  color: var(--dark-primary);
+}
+</style>
