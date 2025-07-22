@@ -1,13 +1,33 @@
 ---
+/*
+ * Адаптивный Picture-компонент для подстановки изображений разного размера в зависимости от ширины экрана.
+ *
+ * Использует внутренний Image.astro для рендеринга тега <img>.
+ * Генерирует <source> для разных брейкпоинтов, создавая `srcset` с Retina-версией (@2x).
+ *
+ * Props:
+ * @param {string} path — Базовый путь к изображению (например, "images/footer/banner"). Расширение не указывается!
+ * @param {Object} sizes — Объект с ключами-брейкпоинтами и значениями [width, height].
+ *     Например: `{ 320: [320, 100], 768: [768, 200], 1440: [1440, 400] }`
+ * @param {string} [type="webp"] — Тип изображения (например, "webp", "jpeg", "png"). Используется в <source type=""> и для расширения файлов.
+ * @param {string} alt — Альтернативный текст для изображения (обязательно для доступности).
+ * @param {boolean} [lazy] — Включить lazy loading для <img>. По дефолту = true.
+ * @param {boolean} [priority] — Если true, отключает lazy loading и включает fetchpriority="high". По дефолту = false.
+ * @param {boolean} [asyncDecoding] — Асинхронное декодирование изображения <img>. По дефолту = true.
+ * @param {string} [class] — Классы для тега <img>.
+ * @param {object} [rest] — Дополнительные атрибуты <img>. См. доку - https://docs.astro.build/en/guides/styling/#passing-a-class-to-a-child-component
+ */
+
 import Image from './Image.astro';
 
 const {
   path,
   sizes,
   type = "webp",
-  loading,
-  decoding,
   alt,
+  lazy,
+  priority,
+  asyncDecoding,
   class: className = '',
   ...rest
 } = Astro.props;
@@ -47,8 +67,9 @@ const imageData = {
     srcset={imageData.srcset}
     width={imageData.width}
     height={imageData.height}
-    loading={loading}
-    decoding={decoding}
+    lazy={lazy}
+    priority={priority}
+    asyncDecoding={asyncDecoding}
     alt={alt}
     {...rest}
   />

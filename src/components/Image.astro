@@ -1,15 +1,36 @@
 ---
+/*
+ * Компонент изображения с поддержкой lazy loading, приоритетной загрузки и асинхронного декодирования.
+ * 
+ * Props:
+ * @param {string} src — URL изображения (обязательный)
+ * @param {string} [srcset] — Набор изображений для адаптивной загрузки. Если не передали, генерим автоматически из src
+ * @param {number|string} [width] — Ширина изображения (для предотвращения CLS)
+ * @param {number|string} [height] — Высота изображения (для предотвращения CLS)
+ * @param {string} [alt=""] — Альтернативный текст для доступности
+ * @param {string} [class] — CSS классы, добавляемые к тегу img
+ * @param {boolean} [lazy=true] — Включить ли lazy loading (отложенная загрузка)
+ * @param {boolean} [priority=false] — Флаг приоритетной загрузки (отменяет lazy, ставит fetchpriority="high")
+ * @param {boolean} [asyncDecoding=true] — Включить ли асинхронное декодирование изображения
+ * @param {object} [rest] — Дополнительные атрибуты <img>. См. доку - https://docs.astro.build/en/guides/styling/#passing-a-class-to-a-child-component
+ */
+
 const {
   src,
-  srcset,
+  srcset = `${src.replace(/(\.\w+)$/, '@2x$1')} 2x`,
   width,
   height,
-  loading = "lazy",
-  decoding = "async",
   alt = "",
+  lazy = true,
+  priority = false,
+  asyncDecoding = true,
   class: className = '',
   ...rest
 } = Astro.props;
+
+const loading = priority ? undefined : (lazy ? "lazy" : undefined);
+const fetchPriority = priority ? "high" : undefined;
+const decoding = asyncDecoding ? "async" : undefined;
 ---
 
 <img
@@ -18,9 +39,10 @@ const {
   srcset={srcset}
   width={width}
   height={height}
-  loading={loading}
-  decoding={decoding}
   alt={alt}
+  loading={loading}
+  fetchpriority={fetchPriority}
+  decoding={decoding}
   {...rest}
 />
 
