@@ -1,11 +1,11 @@
 ---
 const { class: className = '', color = '', ...rest } = Astro.props;
 
-const allowedColors = ['white'];
+const allowedColors = ['white, ligth'];
 
-if (color && !allowedColors.includes(color)) {
-  throw new Error(`Неверный цвет кнопки: "${color}". Допустимые значения: ${allowedColors.join(', ')}`);
-}
+// if (color && !allowedColors.includes(color)) {
+//   throw new Error(`Неверный цвет кнопки: "${color}". Допустимые значения: ${allowedColors.join(', ')}`);
+// }
 ---
 
 <button class:list={`button ${color} ${className}`} {...rest}>
@@ -26,11 +26,12 @@ if (color && !allowedColors.includes(color)) {
   border: none;
   border-radius: 10rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
 
   @include laptop {
     height: 6rem;
     padding: 2rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -42,14 +43,23 @@ if (color && !allowedColors.includes(color)) {
 .button.white {
   color: var(--dark-primary);
   background-color: var(--light-primary);
-
-  @include laptop {
-    font-size: 1.8rem;
-  }
 }
 
 .button.white:hover,
 .button.white:focus {
   background-color: #FAFAFB;
+}
+
+.button.ligth {
+  color: var(--dark-terteriary);
+  background-color: var(--light-primary);
+  border: 0.1rem solid var(--dark-terteriary);
+}
+
+.button.ligth:hover,
+.button.ligth:focus {
+  color: var(--dark-secondary);
+  background-color: #F5F5F6;
+  border-color: var(--dark-secondary);
 }
 </style>

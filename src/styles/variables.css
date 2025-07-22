@@ -9,6 +9,7 @@
   --light-primary: #ffffff;
   --dark-primary: #080D13;
   --dark-secondary: rgba(8, 13, 19, 0.65); /* rgba(var(--dark-primary), 0.65) */
+  --dark-terteriary: rgba(8, 13, 19, 0.35); /* rgba(var(--dark-primary), 0.35) */
   --blue-primary: #4aa9ff;
   --blue-secondary: #4ad5ff;
   /* --gray: #323232; */
