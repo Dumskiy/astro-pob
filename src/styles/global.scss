@@ -25,6 +25,7 @@ body {
   margin: 0;
   line-height: 1.2;
   letter-spacing: -0.04em;
+  color: var(--dark-primary);
 }
 
 :where(p) {
@@ -55,6 +56,12 @@ body {
 
   @include desktop {
     max-width: 120rem;
+  }
+  
+  &.small {
+    @include desktop {
+      max-width: 99.4rem;
+    }
   }
 }
 
