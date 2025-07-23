@@ -10,7 +10,7 @@ import FooterNavigation from "./FooterNavigation.astro";
   <div class="container">
     <div class="footer__head">
       <Logo area="footer"/>
-      <p class="footer__text">Занимайтесь бизнесом, а не бухгалтерией — оставьте заявку, <br>а коллеги ответят на вопросы и помогут с подключением</p>
+      <p class="footer__text">Занимайтесь бизнесом, а не бухгалтерией — оставьте заявку, <br class="tablet">а коллеги ответят на вопросы и помогут с подключением</p>
       <Button class="footer__button-request">Оставить заявку</Button>
     </div>
     <div class="footer__main">
@@ -18,9 +18,7 @@ import FooterNavigation from "./FooterNavigation.astro";
       <FooterNavigation class="footer__navigation" />
       <FooterBanner class="footer__banner" />
     </div>
-    <p class="footer__cookie">
-      Мы&nbsp;используем файлы <a href="" target="_blank">&laquo;cookie&raquo;</a>, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.
-    </p>
+    <p class="footer__cookie">Мы&nbsp;используем файлы <a href="" target="_blank">&laquo;cookie&raquo;</a>, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.</p>
   </div>
 </footer>
 
@@ -56,16 +54,11 @@ import FooterNavigation from "./FooterNavigation.astro";
 }
 
 .footer__text {
-  margin: 0;
   font-size: 1.4rem;
 
   @include mobile-only {
     max-width: 43rem;
     margin-top: 3rem;
-
-    br {
-      display: none;
-    }
   }
 
   @include tablet-only {
@@ -130,7 +123,6 @@ import FooterNavigation from "./FooterNavigation.astro";
 }
 
 .footer__cookie {
-  margin: 0;
   padding-top: 2rem;
   font-weight: 500;
   font-size: 1.4rem;

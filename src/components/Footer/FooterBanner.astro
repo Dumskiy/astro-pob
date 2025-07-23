@@ -12,7 +12,7 @@ const { class: className = '', ...rest } = Astro.props;
 <article class={`banner ${className}`} {...rest}>
   <div class="banner__content">
     <h4 class="banner__title">Телеграм канал с&nbsp;новостями</h4>
-    <p class="banner__descr">Поможем не&nbsp;уснуть от&nbsp;скучных новостей, но&nbsp;остаться в&nbsp;курсе событий</p>
+    <p class="banner__descr">Поможем не&nbsp;уснуть от&nbsp;скучных новостей, <br class="tablet hide-desktop">но остаться в&nbsp;курсе событий</p>
     <Button class="banner__button" color="white">Подписаться</Button>
   </div>
   <Picture path={imageData.path} sizes={imageData.sizes}>
@@ -34,10 +34,11 @@ const { class: className = '', ...rest } = Astro.props;
   }
 
   &__content {
-    padding: 1.6rem;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     row-gap: 1.6rem;
+    padding: 1.6rem;
 
     @include tablet {
       padding: 3rem;
@@ -46,19 +47,14 @@ const { class: className = '', ...rest } = Astro.props;
   }
 
   &__title {
-    margin: 0;
     font-size: 3rem;
-    line-height: 1;
-    
-    @include mobile-only {
-      line-height: 1.2;
-      letter-spacing: -0.04em;
+
+    @include tablet {
+      line-height: 1;
     }
   }
 
   &__descr {
-    margin: 0;
-
     @include laptop {
       font-size: 1.8rem;
     }

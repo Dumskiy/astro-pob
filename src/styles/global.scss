@@ -21,6 +21,16 @@ body {
   background-color: var(--light-primary);
 }
 
+:where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+:where(p) {
+  margin: 0;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -47,3 +57,121 @@ body {
     max-width: 120rem;
   }
 }
+
+.marg-bott {
+  margin-bottom: 9rem;
+
+  @include laptop {
+    margin-bottom: 13.5rem;
+  }
+}
+
+/* Показать элемент в определённых брейкпоинтах */
+.mobile-only {
+  display: none !important;
+  @include mobile-only {
+    display: block !important;
+  }
+}
+
+.tablet {
+  display: none !important;
+  @include tablet {
+    display: block !important;
+  }
+}
+
+.tablet-max {
+  display: none !important;
+  @include tablet-max {
+    display: block !important;
+  }
+}
+
+.tablet-only {
+  display: none !important;
+  @include tablet-only {
+    display: block !important;
+  }
+}
+
+.laptop {
+  display: none !important;
+  @include laptop {
+    display: block !important;
+  }
+}
+
+.laptop-max {
+  display: none !important;
+  @include laptop-max {
+    display: block !important;
+  }
+}
+
+.laptop-only {
+  display: none !important;
+  @include laptop-only {
+    display: block !important;
+  }
+}
+
+.desktop {
+  display: none !important;
+  @include desktop {
+    display: block !important;
+  }
+}
+
+/* Скрыть элемент в определённых брейкпоинтах */
+.hide {
+  display: none !important;
+}
+
+.hide-mobile-only {
+  @include mobile-only {
+    display: none !important;
+  }
+}
+
+.hide-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.hide-tablet-max {
+  @include tablet-only {
+    display: none !important;
+  }
+}
+.hide-tablet-only {
+  @include tablet-only {
+    display: none !important;
+  }
+}
+
+.hide-laptop {
+  @include laptop {
+    display: none !important;
+  }
+}
+
+.hide-laptop-max {
+  @include laptop-max {
+    display: none !important;
+  }
+}
+
+.hide-laptop-only {
+  @include laptop-only {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
