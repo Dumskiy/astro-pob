@@ -5,12 +5,12 @@
   --font-primary: 'Inter', Arial, Helvetica, sans-serif;
 
   /* COLORS */
-  --black: #000000;
-  --light-primary: #ffffff;
-  --dark-primary: #080D13;
-  --dark-secondary: rgba(8, 13, 19, 0.65); /* rgba(var(--dark-primary), 0.65) */
+  --dark-primary:    #080d13;
+  --dark-secondary:  rgba(8, 13, 19, 0.65); /* rgba(var(--dark-primary), 0.65) */
   --dark-terteriary: rgba(8, 13, 19, 0.35); /* rgba(var(--dark-primary), 0.35) */
-  --blue-primary: #4aa9ff;
-  --blue-secondary: #4ad5ff;
-  /* --gray: #323232; */
+  --dark-background: #f5f5f6;
+  --light-primary:   #ffffff;
+  --blue-primary:    #4aa9ff;
+  --blue-secondary:  #4ad5ff;
+  --blue-gradient: linear-gradient(90deg, #4aa9ff 0%, #4ad5ff 100%);
 }

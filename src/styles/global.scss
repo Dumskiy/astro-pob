@@ -73,6 +73,35 @@ body {
   }
 }
 
+.title {
+  font-size: 3.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-align: center;
+
+  @include tablet {
+    font-size: 4rem;
+    line-height: 1.2;
+  }
+  @include laptop {
+    font-size: 4.4rem;
+  }
+}
+
+.descr {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-align: center;
+
+  @include tablet {
+    font-size: 1.8rem;
+  }
+  @include laptop {
+    font-size: 2rem;
+  }
+}
+
 /* Показать элемент в определённых брейкпоинтах */
 .mobile-only {
   display: none !important;
