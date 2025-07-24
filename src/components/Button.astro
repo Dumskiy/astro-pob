@@ -1,11 +1,11 @@
 ---
 const { class: className = '', color = '', ...rest } = Astro.props;
 
-const allowedColors = ['white, ligth'];
+const allowedColors = ['white', 'ligth'];
 
-// if (color && !allowedColors.includes(color)) {
-//   throw new Error(`Неверный цвет кнопки: "${color}". Допустимые значения: ${allowedColors.join(', ')}`);
-// }
+if (color && !allowedColors.includes(color)) {
+  throw new Error(`Неверный цвет кнопки: "${color}". Допустимые значения: ${allowedColors.join(', ')}`);
+}
 ---
 
 <button class:list={`button ${color} ${className}`} {...rest}>

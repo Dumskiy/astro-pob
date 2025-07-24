@@ -64,7 +64,9 @@ const progressSizes = {
             <Image src="images/index/section2-cup.webp" width="60" height="60"/>
           </div>
           <div class="progress-last">
-            И&nbsp;это ещё не&nbsp;всё: <span>входим в&nbsp;кластер &laquo;Сколково&raquo; и&nbsp;реестр Российского&nbsp;ПО</span>
+            <p class="progress-last__descr">
+              <span>И&nbsp;это ещё не&nbsp;всё:</span> входим в&nbsp;кластер &laquo;Сколково&raquo; и&nbsp;реестр Российского&nbsp;ПО
+            </p>
           </div>
         </di>
       </div>
@@ -222,11 +224,18 @@ const progressSizes = {
     line-height: 1.5;
   }
 
-  span {
+  &__descr {
     background: linear-gradient(90deg, #4aa9ff 0%, #4ad5ff 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  
+  &__descr > span {
+    color: var(--dark-secondary);
+    background-clip: border-box;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: var(--dark-secondary);
   }
 
   &::before {

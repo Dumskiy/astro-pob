@@ -20,25 +20,25 @@ const { class: className = '', ...rest } = Astro.props;
 
 <style lang="scss">
 .banner {
-  color: var(--light-primary);
   background: linear-gradient(92.8deg, #4AA9FF 4.12%, #4AD5FF 96.89%);
   border-radius: 1.6rem;
-
+  
   @include tablet {
     display: flex;
     border-radius: 2rem;
   }
-
+  
   @include laptop {
     border-radius: 3rem;
   }
-
+  
   &__content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     row-gap: 1.6rem;
     padding: 1.6rem;
+    color: var(--light-primary);
 
     @include tablet {
       padding: 3rem;
@@ -48,6 +48,8 @@ const { class: className = '', ...rest } = Astro.props;
 
   &__title {
     font-size: 3rem;
+    letter-spacing: -0.02em;
+    color: inherit;
 
     @include tablet {
       line-height: 1;
