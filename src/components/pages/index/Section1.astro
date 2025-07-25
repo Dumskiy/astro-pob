@@ -1,0 +1,58 @@
+---
+import Picture from "../../common/Picture.astro";
+import Button from "../../common/Button.astro";
+
+const heroSizes = {
+  "320": [288, 200],
+  "768": [708, 340],
+  "1024": [964, 340],
+  "1440": [1200, 340]
+};
+---
+
+<section class="hero marg-bott">
+  <div class="container">
+    <Picture class="hero__img" path="images/index/section1" sizes={heroSizes}/>
+    <h1 class="hero__title title">Аутсорс-бухгалтерия <br>как нужно проще</h1>
+    <p class="hero__descr descr">11&nbsp;лет ведём налоговый, кадровый и&nbsp;бухучёт для&nbsp;ИП и&nbsp;ООО <br class="tablet">на&nbsp;всех формах собственности и&nbsp;системах налогообложения, <br class="tablet">а&nbsp;также готовим отчёты в&nbsp;Росстат</p>
+    <div class="hero__buttons">
+      <Button>Оставить заявку</Button>
+      <Button color="ligth">Все тарифы</Button>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+.hero {
+  &__img {
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+    line-height: 1.1;
+    color: var(--blue-secondary);
+  
+    @include tablet {
+      font-size: 5rem;
+    }
+    @include laptop {
+      font-size: 6rem;
+    }
+  }
+
+  &__descr {
+    margin-bottom: 3rem;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    @include mobile-only {
+      flex-direction: column;
+    }
+  }
+}
+</style>
