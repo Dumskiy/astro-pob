@@ -1,11 +1,12 @@
 ---
+import Icon from './Icon.astro';
 const { class: className = '', area, ...rest } = Astro.props;
 const finalClass = `logo ${area ? `logo--${area}` : ''} ${className}`.trim();
 ---
 
-<a class:list={finalClass} href="/" target="_blank" {...rest} >
-  <img class="logo__icon" src="/logo/logo.svg" width="50" height="50" alt="" />
-  <img class="logo__text" src="/logo/logo-text.svg" width="129" height="36" alt="" />
+<a class={finalClass} href="/" target="_blank" {...rest} >
+  <Icon class="logo__icon" name="logo" width="50" height="50" />
+  <Icon class="logo__text" name="logo-text" width="129" height="36" />
   <span class="sr-only">Главная страница</span>
 </a>
 

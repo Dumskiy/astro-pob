@@ -2,12 +2,8 @@
 import Button from "../Button.astro";
 import Picture from "../Picture.astro";
 
-import data from "./footer-data.json";
-const imageData = data.banner.image;
-
-const { class: className = '', ...rest } = Astro.props;
+const { data, class: className = '', ...rest } = Astro.props;
 ---
-
 
 <article class={`banner ${className}`} {...rest}>
   <div class="banner__content">
@@ -15,7 +11,7 @@ const { class: className = '', ...rest } = Astro.props;
     <p class="banner__descr">Поможем не&nbsp;уснуть от&nbsp;скучных новостей, <br class="tablet hide-desktop">но остаться в&nbsp;курсе событий</p>
     <Button class="banner__button" color="white">Подписаться</Button>
   </div>
-  <Picture path={imageData.path} sizes={imageData.sizes}>
+  <Picture path={data.image.path} sizes={data.image.sizes}>
 </article>
 
 <style lang="scss">

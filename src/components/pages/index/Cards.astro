@@ -1,0 +1,186 @@
+---
+import Button from "../../common/Button.astro";
+import Icon from '../../common/Icon.astro';
+
+const { data } = Astro.props;
+---
+
+<section class="marg-bott">
+  <div class="container">
+    <div class="header">
+      <h2 class="title" set:html={data.title} />
+      <p class="descr" set:html={data.descr} />
+    </div>
+    <ul class="cards">
+      {data.items.map((item) => (
+        <li class="card">
+          <div class="card__content">
+            <h3 class="card__title" set:html={item.title} />
+            <p class="card__descr" set:html={item.descr} />
+            <div class="card__footer">
+              <span class="card__price" set:html={item.price} />
+              <a href="" class="card__link">
+                <Icon class="card__icon-gradient" name="arrow-prev-in-circle-gradient" width="60" height="60" />
+                <Icon class="card__icon" name="arrow-prev-in-circle" width="60" height="60" />
+              </a>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <Button class="button-more">Показать все</Button>
+  </div>
+</section>
+
+<style lang="scss">
+.cards {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+  @include laptop {
+    gap: 3rem;
+  }
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.header {
+  margin-bottom: 4rem;
+
+  & > .title + .descr {
+    margin-top: 2rem;
+  }
+}
+
+.card {
+  --padding: 1.6rem;
+  --border-radius: 1.6rem;
+  --border-width: 0.1rem;
+  --border-width-hover: 0.2rem;
+  --background: #A9AAAC; //--dark-terteriary in hex6
+  --background-hover: var(--blue-gradient);
+  position: relative;
+  display: flex;
+  background: var(--background-hover);
+  border-radius: var(--border-radius);
+  transition: transform 0.4s cubic-bezier(0, 0, .4, 1);
+
+  @include laptop {
+    --padding: 3rem;
+    --border-radius: 3rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--background);
+    border-radius: var(--border-radius);
+    transition: opacity 0.4s;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.6rem;
+    margin: var(--border-width);
+    padding: calc(var(--padding) - var(--border-width));
+    background-color: var(--light-primary);
+    border-radius: calc(var(--border-radius) - var(--border-width));
+    transition: margin 0.4s, padding 0.4s, border-radius 0.4s;
+  }
+
+  &:hover {
+    transform: scale(1.07);
+
+    &::before {
+      opacity: 0;
+    }
+
+    .card__content {
+      margin: var(--border-width-hover);
+      padding: calc(var(--padding) - var(--border-width-hover));
+      border-radius: calc(var(--border-radius) - var(--border-width-hover));
+    }
+
+    .card__icon {
+      opacity: 0;
+    }
+  }
+}
+
+.card__title {
+  font-size: 2.6rem;
+  line-height: 1.2;
+}
+
+.card__descr {
+  @include laptop {
+    font-size: 2rem;
+  }
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.card__price {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: var(--dark-primary);
+
+  @include laptop {
+    font-size: 2.4rem;
+  }
+}
+
+.card__link {
+  position: relative;
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  text-decoration: none;
+}
+
+.card__link:hover {
+  .card__icon {
+    opacity: 0;
+  }
+}
+
+.card__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--light-primary);
+  transition: opacity 0.4s;
+}
+
+.button-more {
+  display: block;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  @include laptop {
+    margin-top: 6rem;
+  }
+}
+</style>

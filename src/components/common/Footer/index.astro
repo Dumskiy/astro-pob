@@ -4,6 +4,8 @@ import Button from "../Button.astro";
 import Social from "../Social.astro";
 import FooterBanner from "./FooterBanner.astro";
 import FooterNavigation from "./FooterNavigation.astro";
+
+import data from "./footer-data.json";
 ---
 
 <footer class="footer">
@@ -14,9 +16,9 @@ import FooterNavigation from "./FooterNavigation.astro";
       <Button class="footer__button-request">Оставить заявку</Button>
     </div>
     <div class="footer__main">
-      <Social class="footer__social" />
-      <FooterNavigation class="footer__navigation" />
-      <FooterBanner class="footer__banner" />
+      <Social class="footer__social" data={data.social} />
+      <FooterNavigation class="footer__navigation" data={data.navigation} />
+      <FooterBanner class="footer__banner" data={data.banner} />
     </div>
     <p class="footer__cookie">Мы&nbsp;используем файлы <a href="" target="_blank">&laquo;cookie&raquo;</a>, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.</p>
   </div>

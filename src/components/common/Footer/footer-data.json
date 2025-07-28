@@ -1,4 +1,39 @@
 {
+  "social": [
+    {
+      "icon": {
+        "name": "telegram",
+        "width": "21",
+        "height": "18"
+      },
+      "link": {
+        "text": "Телеграм",
+        "href": "/"
+      }
+    },
+    {
+      "icon": {
+        "name": "vkontakte",
+        "width": "21",
+        "height": "21"
+      },
+      "link": {
+        "text": "ВКонтакте",
+        "href": "/"
+      }
+    },
+    {
+      "icon": {
+        "name": "youtube",
+        "width": "26",
+        "height": "19"
+      },
+      "link": {
+        "text": "Ютуб",
+        "href": "/"
+      }
+    }
+  ],
   "navigation": [
     {
       "text": "Бухгалтерия для ИП",

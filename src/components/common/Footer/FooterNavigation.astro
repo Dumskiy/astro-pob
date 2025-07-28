@@ -1,13 +1,10 @@
 ---
-import data from "./footer-data.json";
-const links = data.navigation;
-
-const { class: className = '', ...rest } = Astro.props;
+const { data, class: className = '', ...rest } = Astro.props;
 ---
 
 <nav class={`footer-navigation ${className}`} {...rest}>
   <ul class="footer-navigation__list">
-    {links.map((link) => (
+    {data.map((link) => (
       <li class="footer-navigation__item">
         <a href={link.href} class="footer-navigation__link">{link.text}</a>
       </li>
