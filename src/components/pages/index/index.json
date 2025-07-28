@@ -1,6 +1,35 @@
 {
   "page": [
     {
+      "component": "Section3",
+      "items": [
+        {
+          "icon": {
+            "name": "loader-gradient",
+            "width": "80",
+            "height": "80"
+          },
+          "descr": "Помогаем общаться <br>с&nbsp;налоговой"
+        },
+        {
+          "icon": {
+            "name": "circle-part-gradient",
+            "width": "80",
+            "height": "80"
+          },
+          "descr": "Несём финансовую <br>ответственность"
+        },
+        {
+          "icon": {
+            "name": "book-gradient",
+            "width": "80",
+            "height": "80"
+          },
+          "descr": "Восстанавливаем бухгалтерию <br class=\"mobile-only\">перед стартом работы"
+        }
+      ]
+    },
+    {
       "component": "Section4",
       "title": "Тарифы для старта, развития <br>и&nbsp;взрослого бизнеса",
       "descr": "Оставьте заявку на&nbsp;любой тариф и&nbsp;мы&nbsp;свяжемся в&nbsp;течение 15&nbsp;минут",
