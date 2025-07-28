@@ -6,13 +6,15 @@ import Section3 from "../components/pages/index/Section3.astro";
 import Cards from "../components/pages/index/Cards.astro";
 
 import data from "../components/pages/index/index.json";
-const data3 = data.page[0];
-const data4 = data.page[1];
-const data7 = data.page[2];
+const data1 = data.page[0];
+// const data2 = data.page[1];
+const data3 = data.page[2];
+const data4 = data.page[3];
+const data7 = data.page[4];
 ---
 
 <Layout>
-  <Section1 />
+  <Section1 data={data1} />
   <Section2 />
   <Section3 data={data3} />
   <Cards data={data4} />

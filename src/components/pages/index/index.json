@@ -1,6 +1,45 @@
 {
   "page": [
     {
+      "component": "Section1",
+      "title": "Аутсорс-бухгалтерия <br>как нужно проще",
+      "descr": "11&nbsp;лет ведём налоговый, кадровый и&nbsp;бухучёт для&nbsp;ИП и&nbsp;ООО <br class=\"tablet\">на&nbsp;всех формах собственности и&nbsp;системах налогообложения, <br class=\"tablet\">а&nbsp;также готовим отчёты в&nbsp;Росстат",
+      "buttons": [
+        {
+          "text": "Оставить заявку",
+          "to": "#form"
+        },
+        {
+          "text": "Все тарифы",
+          "to": "",
+          "color": "ligth"
+        }
+      ],
+      "image": {
+        "path": "images/index/section1",
+        "sizes": {
+          "320": [288, 200],
+          "768": [708, 340],
+          "1024": [964, 340],
+          "1440": [1200, 340]
+        }
+      }
+    },
+    {
+      "component": "Section2",
+      "title": "",
+      "descr": "",
+      "image": {
+        "path": "images/index/section2",
+        "sizes": {
+          "320": [288, 200],
+          "768": [708, 340],
+          "1024": [964, 340],
+          "1440": [1200, 340]
+        }
+      }
+    },
+    {
       "component": "Section3",
       "items": [
         {
