@@ -74,7 +74,7 @@
   ],
   "banner": {
     "image": {
-      "path": "images/footer/banner",
+      "path": "images/common/footer/banner",
       "sizes": {
         "320": [288, 250],
         "768": [308, 270],

@@ -5,14 +5,16 @@ import Section2 from "../components/pages/index/Section2.astro";
 import Section3 from "../components/pages/index/Section3.astro";
 import Section6 from "../components/pages/index/Section6.astro";
 import Cards from "../components/pages/index/Cards.astro";
+import Banner from "../components/common/Banner.astro";
 
 import data from "../components/pages/index/index.json";
 const data1 = data.page[0];
 // const data2 = data.page[1];
 const data3 = data.page[2];
 const data4 = data.page[3];
-const data6 = data.page[4];
-const data7 = data.page[5];
+const data5 = data.page[4];
+const data6 = data.page[5];
+const data7 = data.page[6];
 ---
 
 <Layout>
@@ -20,6 +22,7 @@ const data7 = data.page[5];
   <Section2 />
   <Section3 data={data3} />
   <Cards data={data4} />
+  <Banner data={data5} />
   <Section6 data={data6} />
   <Cards data={data7} />
 </Layout>

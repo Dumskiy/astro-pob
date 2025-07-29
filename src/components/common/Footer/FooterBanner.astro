@@ -16,12 +16,13 @@ const { data, class: className = '', ...rest } = Astro.props;
 
 <style lang="scss">
 .banner {
-  background: linear-gradient(92.8deg, #4AA9FF 4.12%, #4AD5FF 96.89%);
+  background: linear-gradient(129deg, #4aa9ff 0%, #4ad5ff 100%);
   border-radius: 1.6rem;
   
   @include tablet {
     display: flex;
     border-radius: 2rem;
+    background: linear-gradient(143deg, #4aa9ff 0%, #4ad5ff 100%);
   }
   
   @include laptop {
