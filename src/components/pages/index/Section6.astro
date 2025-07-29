@@ -1,0 +1,62 @@
+---
+import Picture from "../../common/Picture.astro";
+import Button from "../../common/Button.astro";
+import List from "../../common/List.astro";
+
+const { data } = Astro.props;
+---
+
+<section class="marg-bott">
+  <div class="container small wrapper">
+    <Picture class="" path={data.image.path} sizes={data.image.sizes}/>
+    <div class="content">
+      <h1 class="title" set:html={data.title} />
+      <p class="descr" set:html={data.descr} />
+      <List class="list" data={data.list} />
+      <p class="descr" set:html={data.summary} />
+      <div class="buttons">
+        {data.buttons.map((button) => (
+          <Button color={button.color}>{button.text}</Button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+.wrapper {
+  @include laptop {
+    display: flex;
+    align-items: center;
+    column-gap: 3rem;
+  }
+}
+
+.content {
+  @include tablet-max {
+    margin-top: 3rem;
+  }
+
+  @include laptop {
+    padding: 0 3rem;
+  }
+}
+
+:is(.title, .descr, .list) {
+  margin-bottom: 2rem;
+}
+
+.title,
+.descr {
+  text-align: left;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+
+  @include tablet-max {
+    flex-direction: column;
+  }
+}
+</style>
