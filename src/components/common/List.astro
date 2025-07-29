@@ -1,0 +1,82 @@
+---
+import Icon from './Icon.astro';
+
+const { data, class: className, ...rest } = Astro.props;
+---
+
+<ul class:list=`list ${className}` {...rest}>
+  {data.items.map((item) => (
+    <li class="list-item">
+      <Icon class="list-icon" name="check-gradient" width="27" height="27" />
+      <span class="list-text" set:html={item.text} />
+      {item.label && (
+        <span class="list-label">
+          <b set:html={item.label} />
+        </span>
+      )}
+    </li>
+  ))}
+</ul>
+
+<style lang="scss">
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.list-item {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 1rem;
+}
+
+.list-item + .list-item {
+  margin-top: 1.6rem;
+}
+
+.list-icon {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.list-text {
+  line-height: 1.88;
+  @include mobile-only {
+    letter-spacing: -0.05em;
+  }
+}
+
+.list-label {
+  --padding: 0.8rem;
+  --border-width: 0.1rem;
+  --border-radius: 1.6rem;
+  position: relative;
+  margin: var(--border-width);
+  padding: calc(var(--padding) - var(--border-width));
+  border-radius: calc(var(--border-radius) - var(--border-width));
+  background-color: var(--light-primary);
+  font-size: 1.4rem;
+  line-height: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: calc(-1 * var(--border-width));
+    border-radius: var(--border-radius);
+    background: var(--blue-gradient);
+  }
+
+  & > b {
+    background: var(--blue-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+</style>
