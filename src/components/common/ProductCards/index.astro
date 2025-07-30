@@ -1,0 +1,43 @@
+---
+import Button from "../Button.astro";
+import Card from './Card.astro';
+
+const { data } = Astro.props;
+---
+
+<ul class="cards">
+  {data.map((item) => (
+    <Card data={item} tag="li" />
+  ))}
+</ul>
+<Button class="button-more">Показать все</Button>
+
+<style lang="scss">
+.cards {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+  @include laptop {
+    gap: 3rem;
+  }
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.button-more {
+  display: block;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  @include laptop {
+    margin-top: 6rem;
+  }
+}
+</style>

@@ -5,6 +5,6 @@ import SmartBanner from "../../common/SmartBanner.astro";
 const { data } = Astro.props;
 ---
 
-<Section size="small">
+<Section size={data.size}>
   <SmartBanner data={data} />
 </Section>

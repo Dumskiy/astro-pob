@@ -1,0 +1,24 @@
+---
+import Section from "../../common/Section.astro";
+import ProductCards from '../../common/ProductCards/index.astro';
+
+const { data } = Astro.props;
+---
+
+<Section>
+  <div class="header">
+    <h2 class="title gl-title" set:html={data.title} />
+    <p class="descr gl-descr" set:html={data.descr} />
+  </div>
+  <ProductCards data={data.items} />
+</Section>
+
+<style lang="scss">
+.header {
+  margin-bottom: 4rem;
+
+  & > .title + .descr {
+    margin-top: 2rem;
+  }
+}
+</style>

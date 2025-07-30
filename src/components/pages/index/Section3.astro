@@ -5,7 +5,7 @@ import Icon from '../../common/Icon.astro';
 const { data } = Astro.props;
 ---
 
-<Section size="small">
+<Section size={data.size}>
   <ul class="list">
     {data.items.map((item) => (
       <li class="item">

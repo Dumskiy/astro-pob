@@ -1,52 +1,49 @@
 ---
+import Section from "../../common/Section.astro";
 import Picture from "../../common/Picture.astro";
 import Image from "../../common/Image.astro";
 
 const { data } = Astro.props;
 ---
 
-<section class="marg-bott">
-  <div class="container small">
-    <div class="wrapper">
-      {
-        data.items.map((item) => {
-          if (item.class === 'hero') {
-            return (
-              <div class="card-hero">
-                <div class="content">
-                  <h2 class="title" set:html={item.title} />
-                  <p class="descr" set:html={item.descr} />
-                </div>
-                <Picture class="img" path={item.image.path} sizes={item.image.sizes} />
-              </div>
-            );
-          }
-
-          if (item.class === 'gray') {
-            return (
-              <div class="card-gray">
-                <p class="descr" set:html={item.descr} />
-                <Image src={item.image.path} width={item.image.width} height={item.image.height} />
-              </div>
-            );
-          }
-
-          if (item.class === 'gradient') {
-            return (
-              <div class="card-gradient">
-                <p class="descr" set:html={item.descr.grad}>
-                  <span set:html={item.descr.noGrad} />
-                </p>
-              </div>
-            );
-          }
-
-          return null;
-        })
+<Section size={data.size}>
+  <div class="wrapper">
+    {data.items.map((item) => {
+      if (item.class === 'hero') {
+        return (
+          <div class="card-hero">
+            <div class="content">
+              <h2 class="title" set:html={item.title} />
+              <p class="descr" set:html={item.descr} />
+            </div>
+            <Picture class="image" path={item.image.path} sizes={item.image.sizes} />
+          </div>
+        );
       }
-    </div>
+
+      if (item.class === 'gray') {
+        return (
+          <div class="card-gray">
+            <p class="descr" set:html={item.descr} />
+            <Image src={item.image.path} width={item.image.width} height={item.image.height} />
+          </div>
+        );
+      }
+
+      if (item.class === 'gradient') {
+        return (
+          <div class="card-gradient">
+            <p class="descr" set:html={item.descr.grad}>
+              <span set:html={item.descr.noGrad} />
+            </p>
+          </div>
+        );
+      }
+
+      return null;
+    })}
   </div>
-</section>
+</Section>
 
 
 <style lang="scss">
@@ -113,7 +110,7 @@ const { data } = Astro.props;
     }
   }
 
-  .img {
+  .image {
     margin: 0 auto;
   }
 }

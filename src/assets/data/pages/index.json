@@ -81,6 +81,7 @@
     },
     {
       "component": "Section3",
+      "size": "small",
       "items": [
         {
           "icon": {
@@ -132,6 +133,7 @@
     },
     {
       "component": "Section5",
+      "size": "small",
       "items": [
         {
           "title": "Нет времени <br class=\"mobile-only\">подписывать документы?",
@@ -150,6 +152,7 @@
     },
     {
       "component": "Section6",
+      "size": "small",
       "title": "Вам подойдёт",
       "descr": "Чувствуйте себя как дома у главбуха",
       "list": {

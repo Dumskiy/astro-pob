@@ -7,7 +7,7 @@ const { data } = Astro.props;
 ---
 
 <Section>
-  <Picture class="img" path={data.image.path} sizes={data.image.sizes}/>
+  <Picture class="image" path={data.image.path} sizes={data.image.sizes}/>
   <h1 class="title gl-title" set:html={data.title} />
   <p class="descr gl-descr" set:html={data.descr} />
   <div class="buttons">
@@ -18,7 +18,7 @@ const { data } = Astro.props;
 </Section>
 
 <style lang="scss">
-.img {
+.image {
   margin: 0 auto;
 }
 
