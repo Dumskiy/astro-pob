@@ -3,9 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Section1 from "../components/pages/index/Section1.astro";
 import Section2 from "../components/pages/index/Section2.astro";
 import Section3 from "../components/pages/index/Section3.astro";
+import SectionCards from "../components/pages/index/SectionCards.astro";
 import Section5 from "../components/pages/index/Section5.astro";
 import Section6 from "../components/pages/index/Section6.astro";
-import SectionCards from "../components/pages/index/SectionCards.astro";
+import Section8 from "../components/pages/index/Section8.astro";
 
 import data from "../assets/data/pages/index.json";
 const data1 = data.page[0];
@@ -15,6 +16,7 @@ const data4 = data.page[3];
 const data5 = data.page[4];
 const data6 = data.page[5];
 const data7 = data.page[6];
+const data8 = data.page[7];
 ---
 
 <Layout>
@@ -25,4 +27,5 @@ const data7 = data.page[6];
   <Section5 data={data5} />
   <Section6 data={data6} />
   <SectionCards data={data7} />
+  <Section8 data={data8} />
 </Layout>

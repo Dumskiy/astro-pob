@@ -1,0 +1,167 @@
+---
+import Section from "../../common/Section.astro";
+import Picture from "../../common/Picture.astro";
+import Button from '../../common/Button.astro';
+
+const { data } = Astro.props;
+---
+
+<Section size={data.size}>
+  <div class="wrapper">
+    <div class="banner">
+      <div class="content">
+        <h4 class="title gl-title" set:html={data.banner.title} />
+        <p class="descr gl-descr" set:html={data.banner.descr} />
+        <span class="label" set:html={data.banner.label} />
+      </div>
+      <Picture class="image" path={data.banner.image.path} sizes={data.banner.image.sizes} />
+    </div>
+
+    <div class="subscribe">
+      <h4 class="title gl-title" set:html={data.subscribe.title} />
+      <p class="descr gl-descr" set:html={data.subscribe.descr} />
+      <Button class="subscribe-button">{data.subscribe.button.text}</Button>
+    </div>
+  </div>
+</Section>
+
+<style lang="scss">
+.wrapper {
+  @include laptop-only {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+  @include desktop {
+    display: flex;
+    column-gap: 3rem;
+  }
+
+  & > * {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 58.5rem;
+  }
+}
+
+.banner {
+  background: linear-gradient(129deg, #4aa9ff 0%, #4ad5ff 100%);
+  border-radius: 1.6rem;
+
+  @include tablet {
+    display: flex;
+    background: linear-gradient(143deg, #4aa9ff 0%, #4ad5ff 100%);
+    border-radius: 2rem;
+  }
+
+  @include laptop {
+    border-radius: 3rem;
+  }
+
+  .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.6rem;
+    padding: 1.6rem;
+    color: var(--light-primary);
+
+    @include tablet {
+      padding: 3rem;
+      padding-right: 0;
+    }
+  }
+
+  .title {
+    font-size: 3rem;
+    text-align: left;
+    color: inherit;
+  
+    @include tablet {
+      line-height: 1;
+    }
+  }
+
+  .descr {
+    text-align: left;
+
+    @include laptop {
+      font-size: 1.8rem;
+    }
+  }
+
+  .label {
+    align-self: flex-start;
+    order: -1;
+    border-radius: 10rem;
+    padding: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--dark-secondary);
+    background-color: var(--light-primary);
+
+    @include tablet {
+      order: 0;
+      margin-top: auto;
+      // font-size: 1.8rem;
+    }
+  }
+
+  .image {
+    @include mobile-only {
+      margin-left: auto;
+    }
+  }
+}
+
+.subscribe {
+  margin-top: 1.6rem;
+  padding: 1.6rem;
+  border: 0.1rem solid #d8d8d8;
+  border-radius: 1.6rem;
+  
+  @include tablet {
+    padding: 3rem;
+    border-radius: 2rem;
+  }
+
+  @include laptop {
+    margin-top: 3rem;
+    border-radius: 3rem;
+  }
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .title {
+    font-size: 3rem;
+    text-align: left;
+
+    @include tablet {
+      line-height: 1;
+    }
+  }
+
+  .descr {
+    margin-top: 1.6rem;
+    text-align: left;
+
+    @include laptop {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.subscribe-button {
+  display: block;
+  width: 100%;
+  margin-top: 3rem;
+
+  @include desktop {
+    margin-top: auto;
+  }
+}
+</style>
