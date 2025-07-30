@@ -1,57 +1,54 @@
 ---
+import Section from "../../common/Section.astro";
 import Picture from "../../common/Picture.astro";
 import Button from "../../common/Button.astro";
 
 const { data } = Astro.props;
 ---
 
-<section class="hero marg-bott">
-  <div class="container">
-    <Picture class="hero__img" path={data.image.path} sizes={data.image.sizes}/>
-    <h1 class="hero__title title" set:html={data.title} />
-    <p class="hero__descr descr" set:html={data.descr} />
-    <div class="hero__buttons">
-      {data.buttons.map((button) => (
-        <Button color={button.color}>{button.text}</Button>
-      ))}
-    </div>
+<Section class="marg-bott">
+  <Picture class="img" path={data.image.path} sizes={data.image.sizes}/>
+  <h1 class="title gl-title" set:html={data.title} />
+  <p class="descr gl-descr" set:html={data.descr} />
+  <div class="buttons">
+    {data.buttons.map((button) => (
+      <Button color={button.color}>{button.text}</Button>
+    ))}
   </div>
-</section>
+</Section>
 
 <style lang="scss">
-.hero {
-  &__img {
-    margin: 0 auto;
+.img {
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 3rem;
+  line-height: 1.1;
+  background: linear-gradient(177deg, #4aa9ff 0%, #4ad5ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @include tablet {
+    font-size: 5rem;
   }
-
-  &__title {
-    margin-bottom: 3rem;
-    line-height: 1.1;
-    background: linear-gradient(177deg, #4aa9ff 0%, #4ad5ff 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    @include tablet {
-      font-size: 5rem;
-    }
-    @include laptop {
-      font-size: 6rem;
-    }
+  @include laptop {
+    font-size: 6rem;
   }
+}
 
-  &__descr {
-    margin-bottom: 3rem;
-  }
+.descr {
+  margin-bottom: 3rem;
+}
 
-  &__buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 
-    @include mobile-only {
-      flex-direction: column;
-    }
+  @include mobile-only {
+    flex-direction: column;
   }
 }
 </style>

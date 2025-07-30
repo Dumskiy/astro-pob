@@ -10,7 +10,7 @@ const { data } = Astro.props;
       {data.items.map((item) => (
         <li class="item">
           <Icon class="icon" name={item.icon.name} width={item.icon.width} height={item.icon.height} />
-          <p class="descr" set:html={item.descr} />
+          <p class="descr gl-descr" set:html={item.descr} />
         </li>
       ))}
     </ul>

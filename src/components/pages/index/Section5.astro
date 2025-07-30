@@ -1,0 +1,10 @@
+---
+import Section from "../../common/Section.astro";
+import SmartBanner from "../../common/SmartBanner.astro";
+
+const { data } = Astro.props;
+---
+
+<Section class="marg-bott" size="small">
+  <SmartBanner data={data} />
+</Section>

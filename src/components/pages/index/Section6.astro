@@ -10,10 +10,10 @@ const { data } = Astro.props;
   <div class="container small wrapper">
     <Picture class="" path={data.image.path} sizes={data.image.sizes}/>
     <div class="content">
-      <h1 class="title" set:html={data.title} />
-      <p class="descr" set:html={data.descr} />
+      <h1 class="title gl-title" set:html={data.title} />
+      <p class="descr gl-descr" set:html={data.descr} />
       <List class="list" data={data.list} />
-      <p class="descr" set:html={data.summary} />
+      <p class="descr gl-descr" set:html={data.summary} />
       <div class="buttons">
         {data.buttons.map((button) => (
           <Button color={button.color}>{button.text}</Button>

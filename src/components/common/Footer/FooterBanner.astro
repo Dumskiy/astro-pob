@@ -6,12 +6,12 @@ const { data, class: className = '', ...rest } = Astro.props;
 ---
 
 <article class={`banner ${className}`} {...rest}>
-  <div class="banner__content">
-    <h4 class="banner__title">Телеграм канал с&nbsp;новостями</h4>
-    <p class="banner__descr">Поможем не&nbsp;уснуть от&nbsp;скучных новостей, <br class="tablet hide-desktop">но остаться в&nbsp;курсе событий</p>
-    <Button class="banner__button" color="white">Подписаться</Button>
+  <div class="content">
+    <h4 class="title gl-title">Телеграм канал с&nbsp;новостями</h4>
+    <p class="descr gl-descr">Поможем не&nbsp;уснуть от&nbsp;скучных новостей, <br class="tablet hide-desktop">но остаться в&nbsp;курсе событий</p>
+    <Button class="banner-button" color="white">Подписаться</Button>
   </div>
-  <Picture path={data.image.path} sizes={data.image.sizes}>
+  <Picture class="image" path={data.image.path} sizes={data.image.sizes}>
 </article>
 
 <style lang="scss">
@@ -21,49 +21,57 @@ const { data, class: className = '', ...rest } = Astro.props;
   
   @include tablet {
     display: flex;
-    border-radius: 2rem;
     background: linear-gradient(143deg, #4aa9ff 0%, #4ad5ff 100%);
+    border-radius: 2rem;
   }
   
   @include laptop {
     border-radius: 3rem;
   }
-  
-  &__content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.6rem;
-    padding: 1.6rem;
-    color: var(--light-primary);
+}
 
-    @include tablet {
-      padding: 3rem;
-      padding-right: 0;
-    }
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+  padding: 1.6rem;
+  color: var(--light-primary);
+
+  @include tablet {
+    padding: 3rem;
+    padding-right: 0;
   }
+}
 
-  &__title {
-    font-size: 3rem;
-    letter-spacing: -0.02em;
-    color: inherit;
+.title {
+  text-align: left;
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  color: inherit;
 
-    @include tablet {
-      line-height: 1;
-    }
+  @include tablet {
+    line-height: 1;
   }
+}
 
-  &__descr {
-    @include laptop {
-      font-size: 1.8rem;
-    }
+.descr {
+  text-align: left;
+  @include laptop {
+    font-size: 1.8rem;
   }
+}
 
-  &__button {
-    @include tablet {
-      align-self: flex-start;
-      margin-top: auto;
-    }
+.banner-button {
+  @include tablet {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+}
+
+.image {
+  @include mobile-only {
+    margin: 0 auto;
   }
 }
 </style>

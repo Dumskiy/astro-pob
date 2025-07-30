@@ -1,5 +1,5 @@
 ---
-const { class: className, size } = Astro.props;
+const { class: className = '', size = '' } = Astro.props;
 ---
 
 <section class={className}>

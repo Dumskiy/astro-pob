@@ -34,7 +34,7 @@ const decoding = asyncDecoding ? "async" : undefined;
 ---
 
 <img
-  class={`image ${className}`}
+  class={className}
   src={src}
   srcset={srcset}
   width={width}
@@ -45,9 +45,3 @@ const decoding = asyncDecoding ? "async" : undefined;
   decoding={decoding}
   {...rest}
 />
-
-<style>
-.image {
-  display: block;
-}
-</style>

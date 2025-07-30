@@ -8,8 +8,8 @@ const { data } = Astro.props;
 <section class="marg-bott">
   <div class="container">
     <div class="header">
-      <h2 class="title" set:html={data.title} />
-      <p class="descr" set:html={data.descr} />
+      <h2 class="title gl-title" set:html={data.title} />
+      <p class="descr gl-descr" set:html={data.descr} />
     </div>
     <ul class="cards">
       {data.items.map((item) => (

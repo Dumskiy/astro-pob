@@ -6,40 +6,34 @@ const { data } = Astro.props;
 const currentData = data.items[0];
 ---
 
-<section class="marg-bott">
-  <div class="container small">
-    <div class="banner clickable">
-      <div class="content">
-        <h4 class="title" set:html={currentData.title} />
-        <p class="descr" set:html={currentData.descr} />
-        <span class="price" set:html={currentData.price} />
-      </div>
-      <Picture class="banner-image" path={currentData.image.path} sizes={currentData.image.sizes}/>
-      <button class="button-close">
-        <Icon name="close" width="30" height="30"/>
-      </button>
-    </div>
+<div class="smart-banner">
+  <div class="content">
+    <h4 class="title gl-title" set:html={currentData.title} />
+    <p class="descr gl-descr" set:html={currentData.descr} />
+    <span class="price" set:html={currentData.price} />
   </div>
-</section>
+  <Picture class="image" path={currentData.image.path} sizes={currentData.image.sizes} />
+  <button class="button-close">
+    <Icon name="close" width="30" height="30" />
+  </button>
+</div>
 
 <style lang="scss">
-.banner {
+.smart-banner {
   position: relative;
   background: linear-gradient(129deg, #4aa9ff 0%, #4ad5ff 100%);
   border-radius: 1.6rem;
-
+  
   @include tablet {
     display: flex;
     border-radius: 3rem;
   }
-}
+  @include laptop {
+    transition: transform 0.4s cubic-bezier(0, 0, .4, 1);
 
-.banner.clickable {
-  transition: transform 0.4s cubic-bezier(0, 0, .4, 1);
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.02);
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 }
 
@@ -86,7 +80,7 @@ const currentData = data.items[0];
   }
 }
 
-.banner-image {
+.image {
   @include mobile-only {
     margin: 0 auto;
   }
