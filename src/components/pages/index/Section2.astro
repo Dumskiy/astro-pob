@@ -2,47 +2,55 @@
 import Picture from "../../common/Picture.astro";
 import Image from "../../common/Image.astro";
 
-const progressSizes = {
-  "320": [288, 193],
-  "768": [346, 208],
-  "1024": [467, 321],
-  "1440": [482, 291]
-};
+const { data } = Astro.props;
 ---
 
 <section class="marg-bott">
   <div class="container small">
-    <div class="progress-wrapper">
-      <div class="progress-hero">
-        <div class="progress-hero__content">
-          <h2 class="progress-hero__title">Пусть за&nbsp;нас скажут поступки</h2>
-          <p class="progress-hero__descr">Мы&nbsp;начинали с&nbsp;обычной доработкой&nbsp;1С, но&nbsp;потом все закрутилось</p>
-        </div>
-        <Picture class="progress-hero__img" path="images/index/section2" sizes={progressSizes}/>
-      </div>
-      <div class="progress-card">
-        <p class="progress-card__descr">Первые запустили банковскую бухгалтерию</p>
-        <Image src="images/index/section2-cup.webp" width="60" height="60"/>
-      </div>
-      <div class="progress-card">
-        <p class="progress-card__descr">Первые запустили бухгалтерию на&nbsp;АвтоУСН</p>
-        <Image src="images/index/section2-cup.webp" width="60" height="60"/>
-      </div>
-      <div class="progress-card">
-        <p class="progress-card__descr">Первые выпустили МЧД для отправки отчётов за&nbsp;клиентов</p>
-        <Image src="images/index/section2-cup.webp" width="60" height="60"/>
-      </div>
-      <div class="progress-last">
-        <p class="progress-last__descr">
-          <span>И&nbsp;это ещё не&nbsp;всё:</span> входим в&nbsp;кластер &laquo;Сколково&raquo; и&nbsp;реестр Российского&nbsp;ПО
-        </p>
-      </div>
-    </di>
+    <div class="wrapper">
+      {
+        data.items.map((item) => {
+          if (item.class === 'hero') {
+            return (
+              <div class="card-hero">
+                <div class="content">
+                  <h2 class="title" set:html={item.title} />
+                  <p class="descr" set:html={item.descr} />
+                </div>
+                <Picture class="img" path={item.image.path} sizes={item.image.sizes} />
+              </div>
+            );
+          }
+
+          if (item.class === 'gray') {
+            return (
+              <div class="card-gray">
+                <p class="descr" set:html={item.descr} />
+                <Image src={item.image.path} width={item.image.width} height={item.image.height} />
+              </div>
+            );
+          }
+
+          if (item.class === 'gradient') {
+            return (
+              <div class="card-gradient">
+                <p class="descr" set:html={item.descr.grad}>
+                  <span set:html={item.descr.noGrad} />
+                </p>
+              </div>
+            );
+          }
+
+          return null;
+        })
+      }
+    </div>
   </div>
 </section>
 
+
 <style lang="scss">
-.progress-wrapper {
+.wrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -56,8 +64,8 @@ const progressSizes = {
   }
 }
 
-.progress-hero,
-.progress-card {
+.card-hero,
+.card-gray {
   padding: 1.6rem;
   background-color: var(--dark-background);
   border-radius: 1.6rem;
@@ -71,14 +79,14 @@ const progressSizes = {
   }
 }
 
-.progress-hero {
+.card-hero {
   padding: 0;
 
   @include tablet {
     grid-row: 1 / 5;
   }
 
-  &__content {
+  .content {
     padding: 1.6rem;
     text-align: center;
 
@@ -87,7 +95,7 @@ const progressSizes = {
     }
   }
 
-  &__title {
+  .title {
     font-size: 2.6rem;
 
     @include tablet {
@@ -98,24 +106,24 @@ const progressSizes = {
     }
   }
 
-  &__descr {
+  .descr {
     margin-top: 2rem;
     @include laptop {
       font-size: 2rem;
     }
   }
 
-  &__img {
+  .img {
     margin: 0 auto;
   }
 }
 
-.progress-card {
+.card-gray {
   display: flex;
   align-items: center;
   column-gap: 3rem;
 
-  &__descr {
+  .descr {
     margin-right: auto;
 
     @include laptop {
@@ -124,7 +132,7 @@ const progressSizes = {
   }
 }
 
-.progress-last {
+.card-gradient {
   --padding: 1.6rem;
   --border-width: 0.2rem;
   --border-radius: 1.6rem;
@@ -146,14 +154,14 @@ const progressSizes = {
     line-height: 1.5;
   }
 
-  &__descr {
+  .descr {
     background: var(--blue-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
-  &__descr > span {
+
+  .descr > span {
     color: var(--dark-secondary);
     background-clip: border-box;
     -webkit-background-clip: border-box;

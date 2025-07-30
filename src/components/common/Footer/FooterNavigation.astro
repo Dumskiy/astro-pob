@@ -2,18 +2,18 @@
 const { data, class: className = '', ...rest } = Astro.props;
 ---
 
-<nav class={`footer-navigation ${className}`} {...rest}>
-  <ul class="footer-navigation__list">
+<nav class={`navigation ${className}`} {...rest}>
+  <ul class="navigation-list">
     {data.map((link) => (
-      <li class="footer-navigation__item">
-        <a href={link.href} class="footer-navigation__link">{link.text}</a>
+      <li class="navigation-item">
+        <a href={link.href} class="navigation-link">{link.text}</a>
       </li>
     ))}
   </ul>
 </nav>
 
 <style lang="scss">
-.footer-navigation__list {
+.navigation-list {
   margin: 0;
 
   @include tablet {
@@ -25,11 +25,11 @@ const { data, class: className = '', ...rest } = Astro.props;
   }
 }
 
-.footer-navigation__item {
+.navigation-item {
   margin-bottom: 1.1rem;
 }
 
-.footer-navigation__link {
+.navigation-link {
   font-weight: 500;
   line-height: 1.2;
   color: var(--dark-secondary);
@@ -41,8 +41,8 @@ const { data, class: className = '', ...rest } = Astro.props;
   }
 }
 
-.footer-navigation__link:hover,
-.footer-navigation__link:focus {
+.navigation-link:hover,
+.navigation-link:focus {
   color: var(--dark-primary);
 }
 </style>

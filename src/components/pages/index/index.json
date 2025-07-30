@@ -27,17 +27,57 @@
     },
     {
       "component": "Section2",
-      "title": "",
-      "descr": "",
-      "image": {
-        "path": "images/index/section2",
-        "sizes": {
-          "320": [288, 200],
-          "768": [708, 340],
-          "1024": [964, 340],
-          "1440": [1200, 340]
+      "size": "small",
+      "items": [
+        {
+          "class": "hero",
+          "title": "Пусть за&nbsp;нас скажут поступки",
+          "descr": "Мы&nbsp;начинали с&nbsp;обычной доработкой&nbsp;1С, но&nbsp;потом все закрутилось",
+          "image": {
+            "path": "images/index/section2",
+            "sizes": {
+              "320": [288, 193],
+              "768": [346, 208],
+              "1024": [467, 321],
+              "1440": [482, 291]
+            }
+          }
+        },
+        {
+          "class": "gray",
+          "descr": "Первые запустили банковскую бухгалтерию",
+          "image": {
+            "path": "images/index/section2-cup.webp",
+            "width": "60",
+            "height": "60"
+          }
+        },
+        {
+          "class": "gray",
+          "descr": "Первые запустили бухгалтерию на&nbsp;АвтоУСН",
+          "image": {
+            "path": "images/index/section2-cup.webp",
+            "width": "60",
+            "height": "60"
+          }
+        },
+        {
+          "class": "gray",
+          "descr": "Первые выпустили МЧД для отправки отчётов за&nbsp;клиентов",
+          "image": {
+            "path": "images/index/section2-cup.webp",
+            "width": "60",
+            "height": "60"
+          }
+        },
+        {
+          "class": "gradient",
+          "descr": {
+            "noGrad": "И&nbsp;это ещё не&nbsp;всё:",
+            "grad": " входим в&nbsp;кластер &laquo;Сколково&raquo; и&nbsp;реестр Российского&nbsp;ПО"
+          }
         }
-      }
+      ]
     },
     {
       "component": "Section3",

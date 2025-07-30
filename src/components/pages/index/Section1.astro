@@ -6,7 +6,7 @@ import Button from "../../common/Button.astro";
 const { data } = Astro.props;
 ---
 
-<Section class="marg-bott">
+<Section>
   <Picture class="img" path={data.image.path} sizes={data.image.sizes}/>
   <h1 class="title gl-title" set:html={data.title} />
   <p class="descr gl-descr" set:html={data.descr} />

@@ -1,21 +1,20 @@
 ---
+import Section from "../../common/Section.astro";
 import Icon from '../../common/Icon.astro';
 
 const { data } = Astro.props;
 ---
 
-<section class="marg-bott">
-  <div class="container small">
-    <ul class="list">
-      {data.items.map((item) => (
-        <li class="item">
-          <Icon class="icon" name={item.icon.name} width={item.icon.width} height={item.icon.height} />
-          <p class="descr gl-descr" set:html={item.descr} />
-        </li>
-      ))}
-    </ul>
-  </div>
-</section>
+<Section size="small">
+  <ul class="list">
+    {data.items.map((item) => (
+      <li class="item">
+        <Icon class="icon" name={item.icon.name} width={item.icon.width} height={item.icon.height} />
+        <p class="descr gl-descr" set:html={item.descr} />
+      </li>
+    ))}
+  </ul>
+</Section>
 
 <style lang="scss">
 .list {

@@ -9,7 +9,7 @@ import Cards from "../components/pages/index/Cards.astro";
 
 import data from "../components/pages/index/index.json";
 const data1 = data.page[0];
-// const data2 = data.page[1];
+const data2 = data.page[1];
 const data3 = data.page[2];
 const data4 = data.page[3];
 const data5 = data.page[4];
@@ -19,7 +19,7 @@ const data7 = data.page[6];
 
 <Layout>
   <Section1 data={data1} />
-  <Section2 />
+  <Section2 data={data2} />
   <Section3 data={data3} />
   <Cards data={data4} />
   <Section5 data={data5} />
