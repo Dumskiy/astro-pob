@@ -7,7 +7,7 @@ const { data, class: className = '', ...rest } = Astro.props;
 <ul class:list=`list ${className}` {...rest}>
   {data.items.map((item) => (
     <li class="list-item">
-      <Icon class="list-icon" name="check-gradient" width="27" height="27" />
+      <Icon class="list-icon" name="check-gradient" size="27" />
       <span class="list-text" set:html={item.text} />
       {item.label && (
         <span class="list-label">

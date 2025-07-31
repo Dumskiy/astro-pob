@@ -86,24 +86,21 @@
         {
           "icon": {
             "name": "loader-gradient",
-            "width": "80",
-            "height": "80"
+            "size": "80"
           },
           "descr": "Помогаем общаться <br>с&nbsp;налоговой"
         },
         {
           "icon": {
             "name": "circle-part-gradient",
-            "width": "80",
-            "height": "80"
+            "size": "80"
           },
           "descr": "Несём финансовую <br>ответственность"
         },
         {
           "icon": {
             "name": "book-gradient",
-            "width": "80",
-            "height": "80"
+            "size": "80"
           },
           "descr": "Восстанавливаем бухгалтерию <br class=\"mobile-only\">перед стартом работы"
         }
@@ -243,6 +240,27 @@
           "to": "#form"
         }
       }
+    },
+    {
+      "component": "SectionForm",
+      "title": "Как подключить?",
+      "descr": "Просто&nbsp;&mdash; оставьте заявку, а&nbsp;коллеги ответят <br class=\"tablet\">на&nbsp;вопросы и&nbsp;помогут начать работу",
+      "tooltips": [
+        {
+          "text": "Три причины быть с&nbsp;нами",
+          "icon": {
+            "name": "arrow-thin-right",
+            "size": 20
+          }
+        },
+        {
+          "text": "Чем мы&nbsp;вам поможем",
+          "icon": {
+            "name": "arrow-thin-right",
+            "size": 20
+          }
+        }
+      ]
     }
   ]
 }

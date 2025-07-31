@@ -1,0 +1,52 @@
+---
+import Button from "@/components/common/Button.astro";
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<form class={className} {...rest}>
+  <input class="input" type="text" name="name" id="name" placeholder="Имя">
+  <input class="input" type="tel" name="phone" id="phone" placeholder="+7">
+  <Button class="button-subscribe" expanded>Подписаться</Button>
+</form>
+
+<style lang="scss">
+.input,
+.input::placeholder {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  @include laptop {
+    font-size: 1.8rem;
+    line-height: 1.11;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  color: var(--dark-primary);
+  background-color: var(--light-primary);
+  border: none;
+  border-radius: 10rem;
+
+  @include laptop {
+    padding: 2rem;
+  }
+}
+
+.input::placeholder {
+  color: var(--dark-terteriary);
+}
+
+.input + .input {
+  margin-top: 1.6rem;
+}
+
+.button-subscribe {
+  margin-top: 2rem;
+}
+</style>

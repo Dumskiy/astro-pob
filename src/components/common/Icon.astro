@@ -1,7 +1,7 @@
 ---
-const { name, width, height, class: className = '', ...rest } = Astro.props;
+const { name, width, height, size, class: className = '', ...rest } = Astro.props;
 ---
 
-<svg class={className} width={width} height={height} aria-hidden="true" {...rest}>
+<svg class={className} width={size || width} height={size || height} aria-hidden="true" {...rest}>
   <use href={`#${name}`} />
 </svg>
