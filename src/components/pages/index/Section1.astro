@@ -1,5 +1,6 @@
 ---
 import Section from "@/components/common/Section.astro";
+import PromoLink from "@/components/common/PromoLink.astro";
 import Picture from "@/components/common/Picture.astro";
 import Button from "@/components/common/Button.astro";
 
@@ -7,6 +8,7 @@ const { data } = Astro.props;
 ---
 
 <Section>
+  <PromoLink class="link-promo" data={data.promoLink} />
   <Picture class="image" path={data.image.path} sizes={data.image.sizes}/>
   <h1 class="title gl-title" set:html={data.title} />
   <p class="descr gl-descr" set:html={data.descr} />
@@ -18,6 +20,11 @@ const { data } = Astro.props;
 </Section>
 
 <style lang="scss">
+.link-promo {
+  margin: 0 auto;
+  margin-top: 1.6rem;
+}
+
 .image {
   margin: 0 auto;
 }

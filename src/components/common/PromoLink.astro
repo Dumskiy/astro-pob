@@ -1,0 +1,54 @@
+---
+const { data, class: className, ...rest } = Astro.props;
+const classes = ['promo-link', className].filter(Boolean).join(' ');
+---
+
+<a class={classes} href={data.href} target="_blank" {...rest}>
+  <span set:html={data.text} />
+  <span class="text-gradient" data-text="&#10230;" set:html={data.shortText} />
+</a>
+
+<style lang="scss">
+.promo-link {
+  display: flex;
+  align-items: center;
+  column-gap: 3rem;
+  max-width: fit-content;
+  padding: 1rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: left;
+  text-decoration: none;
+  color: var(--dark-secondary);
+  border: 0.1rem solid var(--dark-background);
+  border-radius: 1rem;
+  transition: color 0.4s, border-color 0.4s;
+
+  @include tablet {
+    padding: 1rem 0.8rem;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    color: var(--dark-primary);
+    border-color: var(--dark-terteriary);
+  }
+}
+
+.text-gradient {
+  display: flex;
+  column-gap: 0.7rem;
+  background: linear-gradient(90deg, #4aa9ff 0%, #4ad5ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &::after {
+    content: attr(data-text);
+    width: 2rem;
+    height: 2rem;
+  }
+}
+</style>

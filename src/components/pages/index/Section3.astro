@@ -1,6 +1,7 @@
 ---
 import Section from "@/components/common/Section.astro";
 import Icon from '@/components/common/Icon.astro';
+import PromoLink from "@/components/common/PromoLink.astro";
 
 const { data } = Astro.props;
 ---
@@ -14,6 +15,7 @@ const { data } = Astro.props;
       </li>
     ))}
   </ul>
+  <PromoLink class="link-promo" data={data.promoLink} />
 </Section>
 
 <style lang="scss">
@@ -49,5 +51,10 @@ const { data } = Astro.props;
     font-size: 1.6rem;
     letter-spacing: -0.03em;
   }
+}
+
+.link-promo {
+  margin: 0 auto;
+  margin-top: 4rem;
 }
 </style>
