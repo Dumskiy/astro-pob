@@ -1,32 +1,30 @@
 ---
-import Section from "../../common/Section.astro";
-import Picture from "../../common/Picture.astro";
-import Button from '../../common/Button.astro';
+import Picture from "./Picture.astro";
+import Button from './Button.astro';
 
 const { data } = Astro.props;
+const { banner, subscribe } = data;
 ---
 
-<Section size={data.size}>
-  <div class="wrapper">
-    <div class="banner">
-      <div class="content">
-        <h4 class="title gl-title" set:html={data.banner.title} />
-        <p class="descr gl-descr" set:html={data.banner.descr} />
-        <span class="label" set:html={data.banner.label} />
-      </div>
-      <Picture class="image" path={data.banner.image.path} sizes={data.banner.image.sizes} />
+<div class="promo">
+  <div class="banner">
+    <div class="content">
+      <h4 class="title gl-title" set:html={banner.title} />
+      <p class="descr gl-descr" set:html={banner.descr} />
+      <span class="label" set:html={banner.label} />
     </div>
-
-    <div class="subscribe">
-      <h4 class="title gl-title" set:html={data.subscribe.title} />
-      <p class="descr gl-descr" set:html={data.subscribe.descr} />
-      <Button class="subscribe-button">{data.subscribe.button.text}</Button>
-    </div>
+    <Picture class="image" path={banner.image.path} sizes={banner.image.sizes} />
   </div>
-</Section>
+
+  <div class="subscribe">
+    <h4 class="title gl-title" set:html={subscribe.title} />
+    <p class="descr gl-descr" set:html={subscribe.descr} />
+    <Button class="subscribe-button">{subscribe.button.text}</Button>
+  </div>
+</div>
 
 <style lang="scss">
-.wrapper {
+.promo {
   @include laptop-only {
     max-width: 60rem;
     margin: 0 auto;
@@ -40,6 +38,23 @@ const { data } = Astro.props;
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: 58.5rem;
+  }
+}
+
+.title {
+  font-size: 3rem;
+  text-align: left;
+
+  @include tablet {
+    line-height: 1;
+  }
+}
+
+.descr {
+  text-align: left;
+
+  @include laptop {
+    font-size: 1.8rem;
   }
 }
 
@@ -72,21 +87,7 @@ const { data } = Astro.props;
   }
 
   .title {
-    font-size: 3rem;
-    text-align: left;
     color: inherit;
-  
-    @include tablet {
-      line-height: 1;
-    }
-  }
-
-  .descr {
-    text-align: left;
-
-    @include laptop {
-      font-size: 1.8rem;
-    }
   }
 
   .label {
@@ -134,24 +135,10 @@ const { data } = Astro.props;
     flex-direction: column;
     margin-top: 0;
   }
+}
 
-  .title {
-    font-size: 3rem;
-    text-align: left;
-
-    @include tablet {
-      line-height: 1;
-    }
-  }
-
-  .descr {
-    margin-top: 1.6rem;
-    text-align: left;
-
-    @include laptop {
-      font-size: 1.8rem;
-    }
-  }
+.subscribe .descr {
+  margin-top: 1.6rem;
 }
 
 .subscribe-button {

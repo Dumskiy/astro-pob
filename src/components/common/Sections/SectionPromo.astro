@@ -1,10 +1,10 @@
 ---
 import Section from "@/components/common/Section.astro";
-import SmartBanner from "@/components/common/SmartBanner.astro";
+import Promo from "@/components/common/Promo.astro";
 
 const { data } = Astro.props;
 ---
 
 <Section size={data.size}>
-  <SmartBanner data={data} />
+  <Promo data={data} />
 </Section>
