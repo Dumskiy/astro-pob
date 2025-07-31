@@ -1,14 +1,16 @@
 ---
-const { class: className = '', color = '', ...rest } = Astro.props;
+const { class: className = '', color = '', expanded = false, ...rest } = Astro.props;
 
 const allowedColors = ['white', 'ligth'];
 
 if (color && !allowedColors.includes(color)) {
   throw new Error(`Неверный цвет кнопки: "${color}". Допустимые значения: ${allowedColors.join(', ')}`);
 }
+
+const classes = ['button', color, expanded && 'expanded', className].filter(Boolean).join(' ');
 ---
 
-<button class={`button ${color} ${className}`} {...rest}>
+<button class={classes} {...rest}>
   <slot />
 </button>
 
@@ -61,5 +63,10 @@ if (color && !allowedColors.includes(color)) {
   color: var(--dark-secondary);
   background-color: var(--dark-background);
   border-color: var(--dark-secondary);
+}
+
+.button.expanded {
+  display: block;
+  width: 100%;
 }
 </style>
