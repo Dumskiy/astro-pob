@@ -135,10 +135,17 @@ const { banner, subscribe } = data;
     flex-direction: column;
     margin-top: 0;
   }
-}
 
-.subscribe .descr {
-  margin-top: 1.6rem;
+  .title,
+  .descr {
+    @include mobile-only {
+      text-align: center;
+    }
+  }
+
+  .descr {
+    margin-top: 1.6rem;
+  }
 }
 
 .subscribe-button {

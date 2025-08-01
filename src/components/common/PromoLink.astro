@@ -30,10 +30,22 @@ const classes = ['promo-link', className].filter(Boolean).join(' ');
     padding: 1rem 0.8rem;
     font-size: 1.6rem;
   }
+}
 
-  &:hover {
-    color: var(--dark-primary);
-    border-color: var(--dark-terteriary);
+.promo-link:hover {
+  color: var(--dark-primary);
+  border-color: var(--dark-terteriary);
+
+  .text-gradient {
+    animation-name: shimmer;
+    animation-duration: 1.25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background: linear-gradient(110deg, #4aa9ff 0%, #99e7ff 40%, #4aa9ff 80%);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
@@ -49,6 +61,15 @@ const classes = ['promo-link', className].filter(Boolean).join(' ');
     content: attr(data-text);
     width: 2rem;
     height: 2rem;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
   }
 }
 </style>

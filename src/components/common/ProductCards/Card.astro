@@ -63,6 +63,12 @@ const { data, tag: Tag = 'div' } = Astro.props;
 
   &:hover {
     transform: scale(1.07);
+    animation-name: shimmer;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background: linear-gradient(110deg, #4aa9ff 0%, #99e7ff 40%, #4aa9ff 80%);
+    background-size: 200% 100%;
 
     &::before {
       opacity: 0;
@@ -142,6 +148,15 @@ const { data, tag: Tag = 'div' } = Astro.props;
 
   @include laptop {
     margin-top: 6rem;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
   }
 }
 </style>
