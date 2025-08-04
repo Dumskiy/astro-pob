@@ -1,0 +1,31 @@
+---
+import PromoBanner from "./PromoBanner.astro";
+import PromoSubscribe from "./PromoSubscribe.astro";
+
+const { data } = Astro.props;
+---
+
+<div class="promo">
+  <PromoBanner class="promo__banner" data={data.banner} />
+  <PromoSubscribe class="promo__subscribe" data={data.subscribe} />
+</div>
+
+<style lang="scss">
+.promo {
+  @include laptop-only {
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+  @include desktop {
+    display: flex;
+    column-gap: 3rem;
+  }
+}
+
+.promo__banner,
+.promo__subscribe {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 58.5rem;
+}
+</style>

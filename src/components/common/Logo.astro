@@ -1,10 +1,9 @@
 ---
 import Icon from './Icon.astro';
-const { class: className = '', area, ...rest } = Astro.props;
-const finalClass = `logo ${area ? `logo-${area}` : ''} ${className}`.trim();
+const { class: className = '', area = '', ...rest } = Astro.props;
 ---
 
-<a class={finalClass} href="/" target="_blank" {...rest} >
+<a class:list={["logo", {[`logo-${area}`]: area}, className]} href="/" target="_blank" {...rest} >
   <Icon class="logo-icon" name="logo" width="50" height="50" />
   <Icon class="logo-text" name="logo-text" width="129" height="36" />
   <span class="sr-only">Главная страница</span>

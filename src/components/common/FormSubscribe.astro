@@ -1,13 +1,13 @@
 ---
 import Button from "@/components/common/Button.astro";
 
-const { class: className, ...rest } = Astro.props;
+const { class: className = '', ...rest } = Astro.props;
 ---
 
 <form class={className} {...rest}>
   <input class="input" type="text" name="name" id="name" placeholder="Имя">
   <input class="input" type="tel" name="phone" id="phone" placeholder="+7">
-  <Button class="button-subscribe" expanded>Подписаться</Button>
+  <Button class="form-button" expanded>Подписаться</Button>
 </form>
 
 <style lang="scss">
@@ -46,7 +46,7 @@ const { class: className, ...rest } = Astro.props;
   margin-top: 1.6rem;
 }
 
-.button-subscribe {
+.form-button {
   margin-top: 2rem;
 }
 </style>

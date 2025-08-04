@@ -1,11 +1,10 @@
 ---
 const { class: className = '', ...rest } = Astro.props;
-const classes = ['agreement', className].filter(Boolean).join(' ');
 ---
 
-<p class={classes} {...rest}>
+<p class:list={["agreement", className]} {...rest}>
   <span set:html={"Оставляя заявку, вы&nbsp;соглашаетесь с&nbsp;"} />
-  <a href="" target="_blank" set:html={"условиями <br class=\"tablet\">использования сервиса &laquo;Первая&nbsp;Онлайн&nbsp;Бухгалтерия&raquo;"} />
+  <a class="agreement__link" href="" target="_blank" set:html={"условиями <br class=\"tablet\">использования сервиса &laquo;Первая&nbsp;Онлайн&nbsp;Бухгалтерия&raquo;"} />
 </p>
 
 <style lang="scss">
@@ -18,14 +17,14 @@ const classes = ['agreement', className].filter(Boolean).join(' ');
   @include laptop {
     font-size: 1.6rem;
   }
+}
 
-  a {
-    color: inherit;
-    transition: color 0.4s;
-  }
+.agreement__link {
+  color: inherit;
+  transition: color 0.4s;
+}
 
-  a:hover {
-    color: var(--dark-primary);
-  }
+.agreement__link:hover {
+  color: var(--dark-primary);
 }
 </style>

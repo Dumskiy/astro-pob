@@ -7,13 +7,13 @@ const currentData = data.items[0];
 ---
 
 <div class="smart-banner">
-  <div class="content">
-    <h4 class="title gl-title" set:html={currentData.title} />
-    <p class="descr gl-descr" set:html={currentData.descr} />
-    <span class="price" set:html={currentData.price} />
+  <div class="smart-banner__content">
+    <h4 class="smart-banner__title gl-title" set:html={currentData.title} />
+    <p class="smart-banner__descr gl-descr" set:html={currentData.descr} />
+    <span class="smart-banner__price" set:html={currentData.price} />
   </div>
-  <Picture class="image" path={currentData.image.path} sizes={currentData.image.sizes} />
-  <button class="button-close">
+  <Picture class="smart-banner__image" path={currentData.image.path} sizes={currentData.image.sizes} />
+  <button class="smart-banner__button-close">
     <Icon name="close" size="30" />
   </button>
 </div>
@@ -30,14 +30,13 @@ const currentData = data.items[0];
   }
   @include laptop {
     transition: transform 0.4s cubic-bezier(0, 0, .4, 1);
-
     &:hover {
       transform: scale(1.02);
     }
   }
 }
 
-.content {
+.smart-banner__content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -51,7 +50,7 @@ const currentData = data.items[0];
   }
 }
 
-.title {
+.smart-banner__title {
   font-size: 3rem;
   text-align: left;
   color: inherit;
@@ -61,7 +60,7 @@ const currentData = data.items[0];
   }
 }
 
-.descr {
+.smart-banner__descr {
   text-align: left;
 
   @include laptop {
@@ -69,7 +68,7 @@ const currentData = data.items[0];
   }
 }
 
-.price {
+.smart-banner__price {
   margin-top: auto;
   font-weight: 700;
   font-size: 2rem;
@@ -80,13 +79,13 @@ const currentData = data.items[0];
   }
 }
 
-.image {
+.smart-banner__image {
   @include mobile-only {
     margin: 0 auto;
   }
 }
 
-.button-close {
+.smart-banner__button-close {
   position: absolute;
   top: 1.6rem;
   right: 1.6rem;

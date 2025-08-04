@@ -4,33 +4,33 @@ import Button from "@/components/common/Button.astro";
 ---
 
 <header class="header">
-  <div class="header-container container">
-    <Logo class="header-logo" area="header"/>
-    <nav class="navigation">
-      <ul class="navigation-list">
+  <div class="header__container container">
+    <Logo class="header__logo" area="header"/>
+    <nav class="header__navigation">
+      <ul class="header__navigation-list">
         <li>
-          <a href="" class="navigation-link">О нас</a>
+          <a href="" class="header__navigation-link">О нас</a>
         </li>
         <li>
-          <a href="" class="navigation-link">Тарифы</a>
+          <a href="" class="header__navigation-link">Тарифы</a>
         </li>
         <li>
-          <a href="" class="navigation-link">Услуги</a>
+          <a href="" class="header__navigation-link">Услуги</a>
         </li>
       </ul>
     </nav>
-    <Button class="button-request">Оставить заявку</Button>
-    <Button class="button-menu">Меню</Button>
+    <Button class="header__button-request">Оставить заявку</Button>
+    <Button class="header__button-menu">Меню</Button>
   </div>
 </header>
 
 <style lang="scss">
 .header {
   padding: 1rem 0;
-  border-bottom: 0.01rem solid #E1E1E1;
+  border-bottom: 0.1rem solid #E1E1E1;
 }
 
-.header-container {
+.header__container {
   display: flex;
 
   @include mobile-only {
@@ -38,11 +38,11 @@ import Button from "@/components/common/Button.astro";
   }
 }
 
-.header-logo {
+.header__logo {
   margin-right: auto;
 }
 
-.navigation {
+.header__navigation {
   margin-right: 2.5rem;
 
   @include laptop-max {
@@ -50,13 +50,13 @@ import Button from "@/components/common/Button.astro";
   }
 }
 
-.navigation-list {
+.header__navigation-list {
   display: flex;
   height: 100%;
   margin: 0;
 }
 
-.navigation-link {
+.header__navigation-link {
   display: inline-flex;
   align-items: center;
   height: 100%;
@@ -69,18 +69,18 @@ import Button from "@/components/common/Button.astro";
   transition: color 0.3s;
 }
 
-.navigation-link:hover,
-.navigation-link:focus {
+.header__navigation-link:hover,
+.header__navigation-link:focus {
   color: var(--dark-primary);
 }
 
-.button-request {
+.header__button-request {
   @include mobile-only {
     display: none;
   }
 }
 
-.button-menu {
+.header__button-menu {
   margin-left: 1rem;
 }
 </style>

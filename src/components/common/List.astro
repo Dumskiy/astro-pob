@@ -4,13 +4,13 @@ import Icon from './Icon.astro';
 const { data, class: className = '', ...rest } = Astro.props;
 ---
 
-<ul class:list=`list ${className}` {...rest}>
+<ul class:list={["list", className]} {...rest}>
   {data.items.map((item) => (
-    <li class="list-item">
-      <Icon class="list-icon" name="check-gradient" size="27" />
-      <span class="list-text" set:html={item.text} />
+    <li class="list__item">
+      <Icon class="list__icon" name="check-gradient" size="27" />
+      <span class="list__text" set:html={item.text} />
       {item.label && (
-        <span class="list-label">
+        <span class="list__label">
           <b set:html={item.label} />
         </span>
       )}
@@ -22,32 +22,32 @@ const { data, class: className = '', ...rest } = Astro.props;
 .list {
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  list__style-type: none;
 }
 
-.list-item {
+.list__item {
   display: flex;
   align-items: flex-start;
   column-gap: 1rem;
 }
 
-.list-item + .list-item {
+.list__item + .list__item {
   margin-top: 1.6rem;
 }
 
-.list-icon {
+.list__icon {
   flex-shrink: 0;
   margin-top: 0.15rem;
 }
 
-.list-text {
+.list__text {
   line-height: 1.88;
   @include mobile-only {
     letter-spacing: -0.05em;
   }
 }
 
-.list-label {
+.list__label {
   --padding: 0.8rem;
   --border-width: 0.1rem;
   --border-radius: 1.6rem;
@@ -58,25 +58,25 @@ const { data, class: className = '', ...rest } = Astro.props;
   background-color: var(--light-primary);
   font-size: 1.4rem;
   line-height: 1;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-    margin: calc(-1 * var(--border-width));
-    border-radius: var(--border-radius);
-    background: var(--blue-gradient);
-  }
+.list__label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: calc(-1 * var(--border-width));
+  border-radius: var(--border-radius);
+  background: var(--blue-gradient);
+}
 
-  & > b {
-    background: var(--blue-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.list__label > b {
+  background: var(--blue-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>

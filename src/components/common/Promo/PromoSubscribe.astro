@@ -1,0 +1,71 @@
+---
+import Button from "@/components/common/Button.astro"
+
+const { data, class: className = '', ...rest } = Astro.props;
+---
+
+<div class:list={["subscribe", className]} {...rest}>
+  <h4 class="subscribe__title gl-title" set:html={data.title} />
+  <p class="subscribe__descr gl-descr" set:html={data.descr} />
+  <Button class="subscribe__button">{data.button.text}</Button>
+</div>
+
+<style lang="scss">
+.subscribe {
+  // margin-top: 1.6rem;
+  padding: 1.6rem;
+  border: 0.1rem solid #d8d8d8;
+  border-radius: 1.6rem;
+  
+  @include tablet {
+    padding: 3rem;
+    border-radius: 2rem;
+  }
+
+  @include laptop {
+    margin-top: 3rem;
+    border-radius: 3rem;
+  }
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+
+.subscribe__title,
+.subscribe__descr {
+  @include mobile-only {
+    text-align: center;
+  }
+}
+
+.subscribe__title {
+  font-size: 3rem;
+  text-align: left;
+
+  @include tablet {
+    line-height: 1;
+  }
+}
+
+.subscribe__descr {
+  margin-top: 1.6rem;
+  text-align: left;
+
+  @include laptop {
+    font-size: 1.8rem;
+  }
+}
+
+.subscribe__button {
+  display: block;
+  width: 100%;
+  margin-top: 3rem;
+
+  @include desktop {
+    margin-top: auto;
+  }
+}
+</style>

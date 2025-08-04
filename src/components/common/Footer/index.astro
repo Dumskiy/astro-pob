@@ -10,17 +10,17 @@ import data from "./footer-data.json";
 
 <footer class="footer">
   <div class="container">
-    <div class="footer-head">
+    <div class="footer__head">
       <Logo area="footer"/>
-      <p class="text">Занимайтесь бизнесом, а не бухгалтерией — оставьте заявку, <br class="tablet">а коллеги ответят на вопросы и помогут с подключением</p>
-      <Button class="button-request">Оставить заявку</Button>
+      <p class="footer__head-text">Занимайтесь бизнесом, а не бухгалтерией — оставьте заявку, <br class="tablet">а коллеги ответят на вопросы и помогут с подключением</p>
+      <Button class="footer__head-button">Оставить заявку</Button>
     </div>
-    <div class="footer-main">
-      <Social class="footer-social" data={data.social} />
-      <FooterNavigation class="footer-navigation" data={data.navigation} />
-      <FooterBanner class="footer-banner" data={data.banner} />
+    <div class="footer__main">
+      <Social class="footer__social" data={data.social} />
+      <FooterNavigation class="footer__navigation" data={data.navigation} />
+      <FooterBanner class="footer__banner" data={data.banner} />
     </div>
-    <p class="cookie">Мы&nbsp;используем файлы <a href="" target="_blank">&laquo;cookie&raquo;</a>, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.</p>
+    <p class="footer__cookie">Мы&nbsp;используем файлы <a href="" target="_blank">&laquo;cookie&raquo;</a>, чтобы вам было удобно у&nbsp;нас на&nbsp;сайте. Вы&nbsp;можете отключить использование &laquo;cookie&raquo; в&nbsp;настройках браузера.</p>
   </div>
 </footer>
 
@@ -38,7 +38,7 @@ import data from "./footer-data.json";
   }
 }
 
-.footer-head {
+.footer__head {
   @include tablet {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -55,7 +55,7 @@ import data from "./footer-data.json";
   }
 }
 
-.text {
+.footer__head-text {
   font-size: 1.4rem;
 
   @include mobile-only {
@@ -72,7 +72,7 @@ import data from "./footer-data.json";
   }
 }
 
-.button-request {
+.footer__head-button {
   @include tablet-max {
     grid-column: span 2;
     width: 100%;
@@ -80,7 +80,7 @@ import data from "./footer-data.json";
   }
 }
 
-.footer-main {
+.footer__main {
   display: grid;
   row-gap: 4rem;
   margin: 4rem 0;
@@ -106,25 +106,25 @@ import data from "./footer-data.json";
   }
 }
 
-.footer-social {
+.footer__social {
   @include laptop {
     grid-area: social;
   }
 }
 
-.footer-banner {
+.footer__banner {
   @include laptop {
     grid-area: banner;
   }
 }
 
-.footer-navigation {
+.footer__navigation {
   @include laptop {
     grid-area: navigation;
   }
 }
 
-.cookie {
+.footer__cookie {
   padding-top: 2rem;
   font-weight: 500;
   font-size: 1.4rem;

@@ -1,16 +1,14 @@
 ---
-const { class: className = '', color = '', expanded = false, ...rest } = Astro.props;
+const { color = '', expanded = false, class: className = '', ...rest } = Astro.props;
 
 const allowedColors = ['white', 'ligth'];
 
 if (color && !allowedColors.includes(color)) {
   throw new Error(`Неверный цвет кнопки: "${color}". Допустимые значения: ${allowedColors.join(', ')}`);
 }
-
-const classes = ['button', color, expanded && 'expanded', className].filter(Boolean).join(' ');
 ---
 
-<button class={classes} {...rest}>
+<button class:list={['button', {[`button--${color}`]: color}, {[`button--expanded`]: expanded}, className]} {...rest}>
   <slot />
 </button>
 
@@ -42,30 +40,30 @@ const classes = ['button', color, expanded && 'expanded', className].filter(Bool
   background-color: var(--blue-primary);
 }
 
-.button.white {
+.button--white {
   color: var(--dark-primary);
   background-color: var(--light-primary);
 }
 
-.button.white:hover,
-.button.white:focus {
+.button--white:hover,
+.button--white:focus {
   background-color: rgba(#ffffff, 0.5);
 }
 
-.button.ligth {
+.button--ligth {
   color: var(--dark-terteriary);
   background-color: var(--light-primary);
   border: 0.1rem solid var(--dark-terteriary);
 }
 
-.button.ligth:hover,
-.button.ligth:focus {
+.button--ligth:hover,
+.button--ligth:focus {
   color: var(--dark-secondary);
   background-color: var(--dark-background);
   border-color: var(--dark-secondary);
 }
 
-.button.expanded {
+.button--expanded {
   display: block;
   width: 100%;
 }

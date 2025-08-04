@@ -3,10 +3,10 @@ import Icon from './Icon.astro';
 const { data, class: className = '', ...rest } = Astro.props;
 ---
 
-<ul class={`social ${className}`} {...rest}>
+<ul class:list={["social", className]} {...rest}>
   {data.map((item) => (
     <li>
-      <a class="social-link" href={item.link.href} target="_blank">
+      <a class="social__link" href={item.link.href} target="_blank">
         <Icon name={item.icon.name} width={item.icon.width} height={item.icon.height} />
         <span class="sr-only">{item.link.text}</span>
       </a>
@@ -23,7 +23,7 @@ const { data, class: className = '', ...rest } = Astro.props;
   column-gap: 1.6rem;
 }
 
-.social-link {
+.social__link {
   width: 5rem;
   height: 5rem;
   display: flex;

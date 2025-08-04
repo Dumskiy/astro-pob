@@ -1,30 +1,29 @@
 ---
-import Button from "@/components/common/Button.astro";
 import Picture from "@/components/common/Picture.astro";
 
 const { data, class: className = '', ...rest } = Astro.props;
 ---
 
-<article class:list={["banner", className]} {...rest}>
+<div class:list={["banner", className]} {...rest}>
   <div class="banner__content">
-    <h4 class="banner__title gl-title">Телеграм канал с&nbsp;новостями</h4>
-    <p class="banner__descr gl-descr">Поможем не&nbsp;уснуть от&nbsp;скучных новостей, <br class="tablet hide-desktop">но остаться в&nbsp;курсе событий</p>
-    <Button class="banner__button" color="white">Подписаться</Button>
+    <h4 class="banner__title gl-title" set:html={data.title} />
+    <p class="banner__descr gl-descr" set:html={data.descr} />
+    <span class="banner__label" set:html={data.label} />
   </div>
-  <Picture class="banner__image" path={data.image.path} sizes={data.image.sizes}>
-</article>
+  <Picture class="banner__image" path={data.image.path} sizes={data.image.sizes} />
+</div>
 
 <style lang="scss">
 .banner {
   background: linear-gradient(129deg, #4aa9ff 0%, #4ad5ff 100%);
   border-radius: 1.6rem;
-  
+
   @include tablet {
     display: flex;
     background: linear-gradient(143deg, #4aa9ff 0%, #4ad5ff 100%);
     border-radius: 2rem;
   }
-  
+
   @include laptop {
     border-radius: 3rem;
   }
@@ -45,9 +44,8 @@ const { data, class: className = '', ...rest } = Astro.props;
 }
 
 .banner__title {
-  text-align: left;
   font-size: 3rem;
-  letter-spacing: -0.02em;
+  text-align: left;
   color: inherit;
 
   @include tablet {
@@ -57,21 +55,32 @@ const { data, class: className = '', ...rest } = Astro.props;
 
 .banner__descr {
   text-align: left;
+
   @include laptop {
     font-size: 1.8rem;
   }
 }
 
-.banner__button {
+.banner__label {
+  align-self: flex-start;
+  order: -1;
+  border-radius: 10rem;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--dark-secondary);
+  background-color: var(--light-primary);
+
   @include tablet {
-    align-self: flex-start;
+    order: 0;
     margin-top: auto;
   }
 }
 
 .banner__image {
   @include mobile-only {
-    margin: 0 auto;
+    margin-left: auto;
   }
 }
 </style>

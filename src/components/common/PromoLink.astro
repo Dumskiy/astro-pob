@@ -1,9 +1,8 @@
 ---
-const { data, class: className, ...rest } = Astro.props;
-const classes = ['promo-link', className].filter(Boolean).join(' ');
+const { data, class: className = '', ...rest } = Astro.props;
 ---
 
-<a class={classes} href={data.href} target="_blank" {...rest}>
+<a class:list={["promo-link", className]} href={data.href} target="_blank" {...rest}>
   <span set:html={data.text} />
   <span class="text-gradient" data-text="&#10230;" set:html={data.shortText} />
 </a>
@@ -56,12 +55,12 @@ const classes = ['promo-link', className].filter(Boolean).join(' ');
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
 
-  &::after {
-    content: attr(data-text);
-    width: 2rem;
-    height: 2rem;
-  }
+.text-gradient::after {
+  content: attr(data-text);
+  width: 2rem;
+  height: 2rem;
 }
 
 @keyframes shimmer {

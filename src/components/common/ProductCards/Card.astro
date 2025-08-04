@@ -5,14 +5,14 @@ const { data, tag: Tag = 'div' } = Astro.props;
 ---
 
 <Tag class="card">
-  <div class="content">
-    <h3 class="title gl-title" set:html={data.title} />
-    <p class="descr gl-descr" set:html={data.descr} />
-    <div class="card-footer">
-      <span class="price" set:html={data.price} />
-      <a href="" class="link">
+  <div class="card__content">
+    <h3 class="card__title gl-title" set:html={data.title} />
+    <p class="card__descr gl-descr" set:html={data.descr} />
+    <div class="card__footer">
+      <span class="card__price" set:html={data.price} />
+      <a href="" class="card__link">
         <Icon name="arrow-prev-in-circle-gradient" size="60" />
-        <Icon class="icon-gray" name="arrow-prev-in-circle" size="60" />
+        <Icon class="card__icon-default" name="arrow-prev-in-circle" size="60" />
       </a>
     </div>
   </div>
@@ -36,63 +36,63 @@ const { data, tag: Tag = 'div' } = Astro.props;
     --padding: 3rem;
     --border-radius: 3rem;
   }
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  transition: opacity 0.4s;
+}
+
+.card:hover {
+  transform: scale(1.07);
+  animation-name: shimmer;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background: linear-gradient(110deg, #4aa9ff 0%, #99e7ff 40%, #4aa9ff 80%);
+  background-size: 200% 100%;
 
   &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: var(--background);
-    border-radius: var(--border-radius);
-    transition: opacity 0.4s;
+    opacity: 0;
   }
 
-  .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.6rem;
-    margin: var(--border-width);
-    padding: calc(var(--padding) - var(--border-width));
-    background-color: var(--light-primary);
-    border-radius: calc(var(--border-radius) - var(--border-width));
-    transition: margin 0.4s, padding 0.4s, border-radius 0.4s;
+  .card__content {
+    margin: var(--border-width-hover);
+    padding: calc(var(--padding) - var(--border-width-hover));
+    border-radius: calc(var(--border-radius) - var(--border-width-hover));
   }
 
-  &:hover {
-    transform: scale(1.07);
-    animation-name: shimmer;
-    animation-duration: 1.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    background: linear-gradient(110deg, #4aa9ff 0%, #99e7ff 40%, #4aa9ff 80%);
-    background-size: 200% 100%;
-
-    &::before {
-      opacity: 0;
-    }
-
-    .content {
-      margin: var(--border-width-hover);
-      padding: calc(var(--padding) - var(--border-width-hover));
-      border-radius: calc(var(--border-radius) - var(--border-width-hover));
-    }
-
-    .icon-gray {
-      opacity: 0;
-    }
+  .card__icon-default {
+    opacity: 0;
   }
 }
 
-.title {
+.card__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+  margin: var(--border-width);
+  padding: calc(var(--padding) - var(--border-width));
+  background-color: var(--light-primary);
+  border-radius: calc(var(--border-radius) - var(--border-width));
+  transition: margin 0.4s, padding 0.4s, border-radius 0.4s;
+}
+
+.card__title {
   text-align: left;
   font-size: 2.6rem;
   line-height: 1.2;
 }
 
-.descr {
+.card__descr {
   text-align: left;
 
   @include laptop {
@@ -100,14 +100,14 @@ const { data, tag: Tag = 'div' } = Astro.props;
   }
 }
 
-.card-footer {
+.card__footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-top: auto;
 }
 
-.price {
+.card__price {
   font-weight: 700;
   font-size: 2rem;
   line-height: 1.2;
@@ -119,7 +119,7 @@ const { data, tag: Tag = 'div' } = Astro.props;
   }
 }
 
-.link {
+.card__link {
   position: relative;
   display: block;
   width: 6rem;
@@ -127,11 +127,11 @@ const { data, tag: Tag = 'div' } = Astro.props;
   text-decoration: none;
 }
 
-.link:hover .icon-gray {
+.card__link:hover .card__icon-default {
   opacity: 0;
 }
 
-.icon-gray {
+.card__icon-default {
   position: absolute;
   top: 0;
   right: 0;
@@ -139,16 +139,6 @@ const { data, tag: Tag = 'div' } = Astro.props;
   left: 0;
   background-color: var(--light-primary);
   transition: opacity 0.4s;
-}
-
-.button-more {
-  display: block;
-  margin: 0 auto;
-  margin-top: 3rem;
-
-  @include laptop {
-    margin-top: 6rem;
-  }
 }
 
 @keyframes shimmer {

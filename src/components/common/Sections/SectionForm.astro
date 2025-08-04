@@ -19,9 +19,9 @@ const { data } = Astro.props;
     {data.tooltips && (
       <div class="tooltips">
         {data.tooltips.map((item) => (
-          <div class="tooltips-item">
+          <div class="tooltips__item">
             <span set:html={item.text} />
-            <Icon class="tooltips-icon" name={item.icon.name} size={item.icon.size} />
+            <Icon class="tooltips__icon" name={item.icon.name} size={item.icon.size} />
           </div>
         ))}
       </div>
@@ -99,7 +99,7 @@ const { data } = Astro.props;
   }
 }
 
-.tooltips-item {
+.tooltips__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -118,13 +118,13 @@ const { data } = Astro.props;
   }
 }
 
-.tooltips-item + .tooltips-item {
+.tooltips__item + .tooltips__item {
   @include mobile-only {
     margin-top: 1rem;
   }
 }
 
-.tooltips-icon {
+.tooltips__icon {
   color: var(--blue-primary);
 }
 </style>

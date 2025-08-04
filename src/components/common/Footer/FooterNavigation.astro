@@ -2,7 +2,7 @@
 const { data, class: className = '', ...rest } = Astro.props;
 ---
 
-<nav class={`navigation ${className}`} {...rest}>
+<nav class:list={["navigation", className]} {...rest}>
   <ul class="navigation-list">
     {data.map((link) => (
       <li class="navigation-item">
